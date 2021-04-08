@@ -9,23 +9,23 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
-        <link rel="canonical" href="https://insper.github.io/SistemasHardwareSoftware/sobre/">
+        <link rel="canonical" href="https://insper.github.io/SistemasHardwareSoftware/aulas/10-malloc/">
       
       
         <meta name="author" content="Igor Montagner">
       
-      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.6">
     
     
       
-        <title>Burocracias - Sistemas Hardware-Software - 2021/1</title>
+        <title>10 - Alocação Dinâmica de Memória - Sistemas Hardware-Software - 2021/1</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.63b94e9e.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.63b94e9e.min.css">
       
-        <link rel="stylesheet" href="../assets/stylesheets/palette.7f672a1f.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.7f672a1f.min.css">
       
       
         
@@ -43,7 +43,7 @@
     
     
     
-      <link rel="stylesheet" href="../css/printing.css">
+      <link rel="stylesheet" href="../../css/printing.css">
     
     
       
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#plano-de-aulas" class="md-skip">
+        <a href="#10-alocacao-dinamica-de-memoria" class="md-skip">
           Skip to content
         </a>
       
@@ -158,7 +158,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Burocracias
+              10 - Alocação Dinâmica de Memória
             
           </span>
         </div>
@@ -268,8 +268,20 @@
 
 
   <li class="md-nav__item">
-    <a href=".." title="Home" class="md-nav__link">
+    <a href="../.." title="Home" class="md-nav__link">
       Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../sobre/" title="Burocracias" class="md-nav__link">
+      Burocracias
     </a>
   </li>
 
@@ -281,28 +293,9 @@
   
 
 
-  <li class="md-nav__item md-nav__item--active">
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="./" title="Burocracias" class="md-nav__link md-nav__link--active">
-      Burocracias
-    </a>
-    
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       Aulas
@@ -326,7 +319,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../aulas/01-inteiros/" title="01 - Inteiros na CPU" class="md-nav__link">
+    <a href="../01-inteiros/" title="01 - Inteiros na CPU" class="md-nav__link">
       01 - Inteiros na CPU
     </a>
   </li>
@@ -338,7 +331,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../aulas/02-ram/" title="02 - Representação de dados em RAM" class="md-nav__link">
+    <a href="../02-ram/" title="02 - Representação de dados em RAM" class="md-nav__link">
       02 - Representação de dados em RAM
     </a>
   </li>
@@ -350,7 +343,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../aulas/03-arquitetura-x86/" title="03 - Arquitetura x86-64" class="md-nav__link">
+    <a href="../03-arquitetura-x86/" title="03 - Arquitetura x86-64" class="md-nav__link">
       03 - Arquitetura x86-64
     </a>
   </li>
@@ -362,7 +355,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../aulas/04-funcoes-mov/" title="04 - Funções" class="md-nav__link">
+    <a href="../04-funcoes-mov/" title="04 - Funções" class="md-nav__link">
       04 -  Funções
     </a>
   </li>
@@ -374,7 +367,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../aulas/05-condicionais/" title="05 - Condicionais" class="md-nav__link">
+    <a href="../05-condicionais/" title="05 - Condicionais" class="md-nav__link">
       05 - Condicionais
     </a>
   </li>
@@ -386,7 +379,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../aulas/06-condicionais-funcoes/" title="06 - Condicionais e funções" class="md-nav__link">
+    <a href="../06-condicionais-funcoes/" title="06 - Condicionais e funções" class="md-nav__link">
       06 - Condicionais e funções
     </a>
   </li>
@@ -398,7 +391,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../aulas/07-loops/" title="07 - Loops" class="md-nav__link">
+    <a href="../07-loops/" title="07 - Loops" class="md-nav__link">
       07 - Loops
     </a>
   </li>
@@ -410,7 +403,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../aulas/08-variaveis-locais/" title="08 - Variáveis locais" class="md-nav__link">
+    <a href="../08-variaveis-locais/" title="08 - Variáveis locais" class="md-nav__link">
       08 - Variáveis locais
     </a>
   </li>
@@ -422,7 +415,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../aulas/09-arrays/" title="09 - Array em Assembly" class="md-nav__link">
+    <a href="../09-arrays/" title="09 - Array em Assembly" class="md-nav__link">
       09 - Array em Assembly
     </a>
   </li>
@@ -432,11 +425,67 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../aulas/10-malloc/" title="10 - Alocação Dinâmica de Memória" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        10 - Alocação Dinâmica de Memória
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="10 - Alocação Dinâmica de Memória" class="md-nav__link md-nav__link--active">
       10 - Alocação Dinâmica de Memória
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exercicios-basicos" class="md-nav__link">
+    Exercícios básicos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ferramentas-de-verificacao-de-memoria" class="md-nav__link">
+    Ferramentas de verificação de memória
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementacoes-de-funcoes-entrega" class="md-nav__link">
+    Implementações de funções (Entrega)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -446,7 +495,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../aulas/11-tad/index.md" title="None" class="md-nav__link">
+    <a href="../11-tad/index.md" title="None" class="md-nav__link">
       None
     </a>
   </li>
@@ -488,7 +537,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../labs/bomblab/" title="Bomb Lab" class="md-nav__link">
+    <a href="../../labs/bomblab/" title="Bomb Lab" class="md-nav__link">
       Bomb Lab
     </a>
   </li>
@@ -516,6 +565,37 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exercicios-basicos" class="md-nav__link">
+    Exercícios básicos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ferramentas-de-verificacao-de-memoria" class="md-nav__link">
+    Ferramentas de verificação de memória
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementacoes-de-funcoes-entrega" class="md-nav__link">
+    Implementações de funções (Entrega)
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -526,7 +606,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/insper/sistemashardwaresoftware/edit/master/docs/sobre.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/insper/sistemashardwaresoftware/edit/master/docs/aulas/10-malloc/index.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -534,288 +614,142 @@
                   
                 
                 
-                <h1 id="plano-de-aulas">Plano de aulas<a class="headerlink" href="#plano-de-aulas" title="Permanent link">&para;</a></h1>
-<ul>
-<li>SEG 13:30 - 15:40</li>
-<li>
-<p>QUI 15:45 - 17:45</p>
-</li>
-<li>
-<p>Atendimento: QUI 14:00 - 15:30</p>
-</li>
-</ul>
-<details class="note"><summary>Plano de aulas</summary><table>
-<thead>
-<tr>
-<th align="left">Data</th>
-<th align="left">Questão/Problema</th>
-<th align="left">Conteúdo/Atividade</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">24/08</td>
-<td align="left">Mutirão C</td>
-<td align="left">Exercícios práticos de revisão</td>
-</tr>
-<tr>
-<td align="left">27/08</td>
-<td align="left">Mutirão C</td>
-<td align="left">Exercícios práticos de revisão</td>
-</tr>
-<tr>
-<td align="left">31/08</td>
-<td align="left">Como a CPU representa dados em baixo nível?</td>
-<td align="left">Representação de inteiros na CPU: números binários e hexadecimais, complemento de dois, operações bit a bit.</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">Leitura: Cap 2 CS:APP; Cap 9 Stallings</td>
-</tr>
-<tr>
-<td align="left">03/09</td>
-<td align="left">Como a CPU representa dados em baixo nível?</td>
-<td align="left">Representação de ponteiros, arrays e estruturas em RAM.</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">Leitura: Cap 2 CS:APP; Cap 9 Stallings</td>
-</tr>
-<tr>
-<td align="left">07/09</td>
-<td align="left">FERIADO</td>
-<td align="left">FERIADO</td>
-</tr>
-<tr>
-<td align="left">10/09</td>
-<td align="left">Como a CPU representa e executa um programa escrito em C?</td>
-<td align="left">Arquitetura de computadores: registradores, memória e endereçamento</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">Assembly: Organização de um executável no disco e na memória</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">Leitura: Cap 3.1 – 3.4 CS:APP</td>
-</tr>
-<tr>
-<td align="left">14/09</td>
-<td align="left">Como a CPU representa e executa um programa escrito em C?</td>
-<td align="left">Arquitetura de computadores: chamadas de função e pilha</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">Assembly: Exercícios com chamadas de função e operações com inteiros</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">Leitura: Cap 3.5 CS:APP</td>
-</tr>
-<tr>
-<td align="left">17/09</td>
-<td align="left">Como a CPU representa e executa um programa escrito em C?</td>
-<td align="left">Assembly: expressões booleanas e estruturas de controle condicionais</td>
-</tr>
-<tr>
-<td align="left">21/09</td>
-<td align="left">Como a CPU representa e executa um programa escrito em C?</td>
-<td align="left">Assembly: estruturas de controle de loop</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">Leitura: Cap 3.6 CS:APP</td>
-</tr>
-<tr>
-<td align="left">24/09</td>
-<td align="left">Como a CPU representa e executa um programa escrito em C?</td>
-<td align="left">Revisão; organização de executável no disco e na memória</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">Assembly: variáveis locais, strings e arrays</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">Leitura: Cap 3.7 – 3.8 CS:APP</td>
-</tr>
-<tr>
-<td align="left">28/09</td>
-<td align="left">Como a CPU representa e executa um programa escrito em C?</td>
-<td align="left">Exercícios práticos de revisão</td>
-</tr>
-<tr>
-<td align="left">01/10</td>
-<td align="left">E se meu programa precisar de mais memória?</td>
-<td align="left">A função malloc e a alocação dinâmica de estruturas, arrays e strings.</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">Uso da ferramenta valgrind para checagem de memória</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">Leituras: Cap 16 Kochan (Prog in C); Cap 9.9 CS:APP</td>
-</tr>
-<tr>
-<td align="left">05/10</td>
-<td align="left">E se meu programa precisar de mais memória?</td>
-<td align="left">Tipos Abstratos de dados e alocação dinâmica de memória</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">Leituras: Cap 6 K&amp;R</td>
-</tr>
-<tr>
-<td align="left">08/10</td>
-<td align="left">PROVA INTERMEDIÁRIA</td>
-<td align="left">PROVA INTERMEDIÁRIA</td>
-</tr>
-<tr>
-<td align="left">12/10</td>
-<td align="left">FERIADO</td>
-<td align="left">FERIADO</td>
-</tr>
-<tr>
-<td align="left">15/10</td>
-<td align="left">O que é um sistema operacional? Como os programas se comunicam com ele?</td>
-<td align="left">Visão global de um sistema: kernel, sistema de arquivos, biblioteca padrão e bootloaders</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">Leitura: Cap 10.2 Tanenbaum; Kivity et al 2014.</td>
-</tr>
-<tr>
-<td align="left">19/10</td>
-<td align="left">Como tudo isto está organizado em um sistema operacional?</td>
-<td align="left">Aula estúdio para projeto: Linux do Zero</td>
-</tr>
-<tr>
-<td align="left">22/10</td>
-<td align="left">Como tudo isto está organizado em um sistema operacional?</td>
-<td align="left">Aula estúdio para projeto: Linux do Zero</td>
-</tr>
-<tr>
-<td align="left">26/10</td>
-<td align="left">O que é um sistema operacional? Como os programas se comunicam com ele?</td>
-<td align="left">Sistemas operacionais: processos. Explorando chamadas de sistemas para entrada/saída</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">Leitura: Cap 8 CS:APP,</td>
-</tr>
-<tr>
-<td align="left">29/10</td>
-<td align="left">O que é um sistema operacional? Como os programas se comunicam com ele?</td>
-<td align="left">Sistemas operacionais: processos. Explorando chamadas de sistemas para criação de processo (fork) e espera de seus resultados (wait).</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">Leitura: Cap 8 CS:APP,</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">Leitura complementar sobre escalonamento de processos: Cap 5 Silberschats</td>
-</tr>
-<tr>
-<td align="left">02/11</td>
-<td align="left">FERIADO</td>
-<td align="left">PROVA INTERMEDIÁRIA</td>
-</tr>
-<tr>
-<td align="left">05/11</td>
-<td align="left">O que é um sistema operacional? Como os programas se comunicam com ele?</td>
-<td align="left">Sistemas operacionais: processos. Explorando chamadas de sistemas para execução de programas (exec)</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">Leitura: Cap 8 CS:APP,</td>
-</tr>
-<tr>
-<td align="left">09/11</td>
-<td align="left">E se o SO quiser avisar um processo que algo ocorreu?</td>
-<td align="left">Sinais: conceitos, captura e bloqueio.</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">Introdução à ideia de concorrência</td>
-</tr>
-<tr>
-<td align="left">12/11</td>
-<td align="left">E se o SO quiser avisar um processo que algo ocorreu?</td>
-<td align="left">Captura e bloqueio de sinais: teoria e exercícios práticos</td>
-</tr>
-<tr>
-<td align="left">16/11</td>
-<td align="left">Como envio informações entre processos?</td>
-<td align="left">Entrada e saída padrão, chamadas de sistema pipe, dup2 para redirecionamento de arquivos.</td>
-</tr>
-<tr>
-<td align="left">19/11</td>
-<td align="left">É possível dividir o trabalho em partes que executem ao mesmo tempo?</td>
-<td align="left">Introdução ao conceito de threads e sua utilização</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">Criação de threads usando pthreads.</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">Leitura: Cap 12 CS:APP</td>
-</tr>
-<tr>
-<td align="left">23/11</td>
-<td align="left">É possível dividir o trabalho em partes que executem ao mesmo tempo?</td>
-<td align="left">Tarefas IO- e CPU-bound. Sincronização usando semáforos.</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">Leitura: Cap 12 CS:APP</td>
-</tr>
-<tr>
-<td align="left">26/11</td>
-<td align="left">PROVA FINAL</td>
-<td align="left">PROVA FINAL</td>
-</tr>
-<tr>
-<td align="left">30/11</td>
-<td align="left">PROVA FINAL</td>
-<td align="left">PROVA FINAL</td>
-</tr>
-<tr>
-<td align="left">03/12</td>
-<td align="left">nan</td>
-<td align="left">nan</td>
-</tr>
-<tr>
-<td align="left">07/12</td>
-<td align="left">PROVA SUB</td>
-<td align="left">PROVA SUB</td>
-</tr>
-</tbody>
-</table>
-</details>
+                <h1 id="10-alocacao-dinamica-de-memoria">10 - Alocação Dinâmica de Memória<a class="headerlink" href="#10-alocacao-dinamica-de-memoria" title="Permanent link">&para;</a></h1>
+<h2 id="exercicios-basicos">Exercícios básicos<a class="headerlink" href="#exercicios-basicos" title="Permanent link">&para;</a></h2>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Abra o arquivo <em>ex1.c</em> em um editor e compile-o usando as flags da disciplina (<code>-Og -Wall -std=c99</code>).</p>
+</div>
+<p><strong>Sem rodar o programa</strong>, responda as questões abaixo.</p>
+<div class="admonition question short">
+<p class="admonition-title">Question</p>
+<p>Analisando seu código-fonte, o que este programa faz?</p>
+</div>
+<div class="admonition question short">
+<p class="admonition-title">Question</p>
+<p>Na execução deste programa, o que acontece se <code>malloc</code> falhar? </p>
+</div>
+<div class="admonition question short">
+<p class="admonition-title">Question</p>
+<p>O seu programa libera toda memória que aloca? Se não, aponte onde ele deveria fazer isto.</p>
+<div class="admonition details">
+<p class="admonition-title">Details</p>
+<p>Cada valor retornado por <code>malloc</code> deve ser liberado usando a função <code>free</code>. No caso, vemos que <code>vetor</code> não foi liberada após seu uso. </p>
+</div>
+</div>
+<hr />
+<p>Agora execute o programa acima e responda as questões abaixo.</p>
+<div class="admonition question short">
+<p class="admonition-title">Question</p>
+<p>Ocorreu algum problema durante a execução?</p>
+<div class="admonition details">
+<p class="admonition-title">Details</p>
+<p>A resposta aqui é provavelmente não. Porém, isso não significa que o programa está correto, apenas que se ocorreu um erro ele não foi suficientemente grave para finalizar o programa.</p>
+</div>
+</div>
+<div class="admonition question short">
+<p class="admonition-title">Question</p>
+<p>O comportamento de seu programa muda conforme N muda? Começe com <code>N=10</code> e vá incrementando de um em um. Você consegue explicar por que? Discuta com seu grupo e valide sua resposta com o professor.</p>
+<div class="admonition details">
+<p class="admonition-title">Details</p>
+<p>Ao chegar em <code>N=14</code> seu programa deverá magicamente dar problemas e deve voltar a funcionar com <code>N=15</code>. Este é um dos grandes problemas de programas com erro de memória: seu comportamento é imprevisível.</p>
+</div>
+</div>
+<div class="admonition question medium">
+<p class="admonition-title">Question</p>
+<p>Existem três problemas no código. O primeiro (<code>vetor</code> não é desalocado) já identificamos no exercíco anterior. Você consegue identificar os outros dois? </p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Corrija os erros apontados na questão anterior e salve o programa em um arquivo <em>ex1-certo.c</em>.</p>
+</div>
+<h2 id="ferramentas-de-verificacao-de-memoria">Ferramentas de verificação de memória<a class="headerlink" href="#ferramentas-de-verificacao-de-memoria" title="Permanent link">&para;</a></h2>
+<p>Para poder identificar mais facilmente problemas relativos a memória, iremos utilizar uma ferramenta chamada Valgrind.</p>
+<p>O Valgrind é um detector de má gestão de memória. Ele roda seu programa em cima de um ambiente modificado e aponta os seguintes erros:</p>
+<ol>
+<li>memória alocada e não liberada</li>
+<li>acessos (leituras e escritas) a posições de memória não alocada ou inválidas</li>
+</ol>
+<p>O valgrind  está disponível na maioria das distribuições Linux modernas</p>
+<div class="highlight"><pre><span></span><code>sudo apt-get install valgrind
+</code></pre></div>
+<p>Para que os problemas encontrados pelo Valgrind sejam mais facilmente identificados, iremos passar a compilar utilizando a flag <code>-g</code>.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Compile os programas <code>ex1</code> e <code>ex1-certo</code> criados na parte anterior com a flag <code>-g</code>.</p>
+</div>
+<div class="admonition question medium">
+<p class="admonition-title">Question</p>
+<p>Rode o Valgrind com <code>valgrind --leak-check=yes ./ex1</code>. Quantos erros foram encontrados? Quais são seus tipos (escrita ou leitura de dados)? O que eles significam?</p>
+</div>
+<hr />
+<p>O primeiro erro encontrado é</p>
+<div class="highlight"><pre><span></span><code>==1899== Invalid write of size 4
+==1899==    at 0x1086C7: main (ex1.c:11)
+==1899==  Address 0x522f078 is 0 bytes after a block of size 56 alloc&#39;d
+==1899==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1899==    by 0x1086B9: main (ex1.c:7)
+</code></pre></div>
+<div class="admonition question short">
+<p class="admonition-title">Question</p>
+<p>Em qual linha o erro ocorre? O que a mensagem acima significa? </p>
+<div class="admonition details">
+<p class="admonition-title">Details</p>
+<p>O erro ocorre na linha 11, ao escrever em vetor[i] quando <code>i == N</code></p>
+</div>
+</div>
+<hr />
+<p>O segundo erro é</p>
+<div class="highlight"><pre><span></span><code>==1899== Invalid read of size 4
+==1899==    at 0x1086DD: main (ex1.c:15)
+==1899==  Address 0x522f078 is 0 bytes after a block of size 56 alloc&#39;d
+==1899==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1899==    by 0x1086B9: main (ex1.c:7)
+</code></pre></div>
+<div class="admonition question short">
+<p class="admonition-title">Question</p>
+<p>Em qual linha o erro ocorre? O que a mensagem acima significa? </p>
+<div class="admonition details">
+<p class="admonition-title">Details</p>
+<p>O erro ocorre na linha 15, ao ler vetor[i] quando <code>i == N</code>.</p>
+</div>
+</div>
+<hr />
+<p>A seção <em>HEAP SUMMARY</em> faz um resumo dos dados alocados/desalocados no seu programa. A saída abaixo foi obtida ao rodar o valgrind para o exercício 1 original:</p>
+<div class="highlight"><pre><span></span><code>==2179== HEAP SUMMARY:
+==2179==     in use at exit: 56 bytes in 1 blocks
+==2179==   total heap usage: 2 allocs, 1 frees, 1,080 bytes allocated
+==2179== 
+==2179== 56 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==2179==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2179==    by 0x1086B9: main (ex1.c:7)
+</code></pre></div>
+<div class="admonition question short">
+<p class="admonition-title">Question</p>
+<p>Ela mostra algum problema? Se sim, qual linha de código é apontada? Qual é o problema diagnosticado por este aviso?</p>
+<div class="admonition details">
+<p class="admonition-title">Details</p>
+<p>Ela indica que houveram 2 <code>mallocs' e somente 1</code>free<code>. Ou seja, alguma alocação de memória deixou de liberar dados. Abaixo, são indicadas em quais linhas os</code>malloc<code>sem</code>free<code>ocorreram (linha 7 na função</code>main`)</p>
+</div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Verifique que seu programa corrigido <em>ex1-certo.c</em> roda sem erros no valgrind. Se não, corrija os problema e rode novamente até que rode sem erros.</p>
+</div>
+<h2 id="implementacoes-de-funcoes-entrega">Implementações de funções (<strong>Entrega</strong>)<a class="headerlink" href="#implementacoes-de-funcoes-entrega" title="Permanent link">&para;</a></h2>
+<p>Os exercícios abaixo estão disponíveis no repositório de entregas (pasta <code>07-malloc</code>).</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Abra o arquivo <em>ex4.c</em> e implemente a função <em>mystrcpy</em>. Esta função recebe uma string, e devolve uma cópia da string original, alocando apenas o espaço realmente necessário.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Abra o arquivo <em>ex5.c</em> e implemente a função <em>mystrcat</em>. Esta função recebe duas string, e devolve uma terceira que é a concatenação das duas primeiras, alocando apenas o espaço realmente necessário.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Não se esqueça de checar se sua implementação tem erros usando o valgrind.</p>
+</div>
                 
               
               
@@ -834,7 +768,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href=".." title="Home" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../09-arrays/" title="09 - Array em Assembly" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -843,19 +777,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Home
+                09 - Array em Assembly
               </div>
             </div>
           </a>
         
         
-          <a href="../aulas/01-inteiros/" title="01 - Inteiros na CPU" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../labs/bomblab/" title="Bomb Lab" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                01 - Inteiros na CPU
+                Bomb Lab
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
@@ -882,15 +816,15 @@
       
     </div>
     
-      <script src="../assets/javascripts/vendor.d1f5a259.min.js"></script>
-      <script src="../assets/javascripts/bundle.d5fec882.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../../assets/javascripts/vendor.d1f5a259.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d5fec882.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
-          base: "..",
+          base: "../..",
           features: [],
           search: Object.assign({
-            worker: "../assets/javascripts/worker/search.fae956e7.min.js"
+            worker: "../../assets/javascripts/worker/search.fae956e7.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
@@ -899,7 +833,7 @@
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.0.0/js-yaml.min.js"></script>
       
-        <script src="../markdown-enhancer.js"></script>
+        <script src="../../markdown-enhancer.js"></script>
       
     
   </body>
