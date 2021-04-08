@@ -627,14 +627,14 @@
 </div>
 <div class="admonition question short">
 <p class="admonition-title">Question</p>
-<p>Na execução deste programa, o que acontece se <code>malloc</code> falhar? </p>
+<p>Na execução deste programa, o que acontece se <code>malloc</code> falhar?</p>
 </div>
 <div class="admonition question short">
 <p class="admonition-title">Question</p>
 <p>O seu programa libera toda memória que aloca? Se não, aponte onde ele deveria fazer isto.</p>
 <div class="admonition details">
 <p class="admonition-title">Details</p>
-<p>Cada valor retornado por <code>malloc</code> deve ser liberado usando a função <code>free</code>. No caso, vemos que <code>vetor</code> não foi liberada após seu uso. </p>
+<p>Cada valor retornado por <code>malloc</code> deve ser liberado usando a função <code>free</code>. No caso, vemos que <code>vetor</code> não foi liberada após seu uso.</p>
 </div>
 </div>
 <hr />
@@ -657,7 +657,7 @@
 </div>
 <div class="admonition question medium">
 <p class="admonition-title">Question</p>
-<p>Existem três problemas no código. O primeiro (<code>vetor</code> não é desalocado) já identificamos no exercíco anterior. Você consegue identificar os outros dois? </p>
+<p>Existem três problemas no código. O primeiro (<code>vetor</code> não é desalocado) já identificamos no exercíco anterior. Você consegue identificar os outros dois?</p>
 </div>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
@@ -692,7 +692,7 @@
 </code></pre></div>
 <div class="admonition question short">
 <p class="admonition-title">Question</p>
-<p>Em qual linha o erro ocorre? O que a mensagem acima significa? </p>
+<p>Em qual linha o erro ocorre? O que a mensagem acima significa?</p>
 <div class="admonition details">
 <p class="admonition-title">Details</p>
 <p>O erro ocorre na linha 11, ao escrever em vetor[i] quando <code>i == N</code></p>
@@ -708,7 +708,7 @@
 </code></pre></div>
 <div class="admonition question short">
 <p class="admonition-title">Question</p>
-<p>Em qual linha o erro ocorre? O que a mensagem acima significa? </p>
+<p>Em qual linha o erro ocorre? O que a mensagem acima significa?</p>
 <div class="admonition details">
 <p class="admonition-title">Details</p>
 <p>O erro ocorre na linha 15, ao ler vetor[i] quando <code>i == N</code>.</p>
@@ -719,7 +719,7 @@
 <div class="highlight"><pre><span></span><code>==2179== HEAP SUMMARY:
 ==2179==     in use at exit: 56 bytes in 1 blocks
 ==2179==   total heap usage: 2 allocs, 1 frees, 1,080 bytes allocated
-==2179== 
+==2179==
 ==2179== 56 bytes in 1 blocks are definitely lost in loss record 1 of 1
 ==2179==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
 ==2179==    by 0x1086B9: main (ex1.c:7)
@@ -740,11 +740,11 @@
 <p>Os exercícios abaixo estão disponíveis no repositório de entregas (pasta <code>07-malloc</code>).</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p>Abra o arquivo <em>ex4.c</em> e implemente a função <em>mystrcpy</em>. Esta função recebe uma string, e devolve uma cópia da string original, alocando apenas o espaço realmente necessário.</p>
+<p>Abra o arquivo <em>copia_string.c</em> e implemente a função <em>mystrcpy</em>. Esta função recebe uma string, e devolve uma cópia da string original, alocando apenas o espaço realmente necessário.</p>
 </div>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p>Abra o arquivo <em>ex5.c</em> e implemente a função <em>mystrcat</em>. Esta função recebe duas string, e devolve uma terceira que é a concatenação das duas primeiras, alocando apenas o espaço realmente necessário.</p>
+<p>Abra o arquivo <em>concatena_string.c</em> e implemente a função <em>mystrcat</em>. Esta função recebe duas string, e devolve uma terceira que é a concatenação das duas primeiras, alocando apenas o espaço realmente necessário.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
