@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
-        <link rel="canonical" href="https://insper.github.io/SistemasHardwareSoftware/aulas/07-loops/">
+        <link rel="canonical" href="https://insper.github.io/SistemasHardwareSoftware/aulas/11-tipos-de-dados/">
       
       
         <meta name="author" content="Igor Montagner">
@@ -19,7 +19,7 @@
     
     
       
-        <title>07 - Loops - Sistemas Hardware-Software - 2021/1</title>
+        <title>11 - Tipos abstratos de dados - Sistemas Hardware-Software - 2021/1</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#07-loops" class="md-skip">
+        <a href="#11-tipos-abstratos-de-dados" class="md-skip">
           Skip to content
         </a>
       
@@ -158,7 +158,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              07 - Loops
+              11 - Tipos abstratos de dados
             
           </span>
         </div>
@@ -389,80 +389,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        07 - Loops
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
-      </label>
-    
-    <a href="./" title="07 - Loops" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../07-loops/" title="07 - Loops" class="md-nav__link">
       07 - Loops
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#arquivo-ex1o" class="md-nav__link">
-    Arquivo ex1.o
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exercicios-para-entrega" class="md-nav__link">
-    Exercícios para entrega
-  </a>
-  
-    <nav class="md-nav" aria-label="Exercícios para entrega">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#arquivo-ex2" class="md-nav__link">
-    Arquivo ex2
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#arquivo-ex3" class="md-nav__link">
-    Arquivo ex3
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -506,11 +437,73 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../11-tipos-de-dados/" title="11 - Tipos abstratos de dados" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        11 - Tipos abstratos de dados
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="11 - Tipos abstratos de dados" class="md-nav__link md-nav__link--active">
       11 - Tipos abstratos de dados
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-estrutura-point2d" class="md-nav__link">
+    A estrutura Point2D
+  </a>
+  
+    <nav class="md-nav" aria-label="A estrutura Point2D">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ponteiros-opacos" class="md-nav__link">
+    Ponteiros opacos
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vetores-dinamicos" class="md-nav__link">
+    Vetores dinâmicos
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -587,36 +580,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#arquivo-ex1o" class="md-nav__link">
-    Arquivo ex1.o
+  <a href="#a-estrutura-point2d" class="md-nav__link">
+    A estrutura Point2D
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exercicios-para-entrega" class="md-nav__link">
-    Exercícios para entrega
-  </a>
-  
-    <nav class="md-nav" aria-label="Exercícios para entrega">
+    <nav class="md-nav" aria-label="A estrutura Point2D">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#arquivo-ex2" class="md-nav__link">
-    Arquivo ex2
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#arquivo-ex3" class="md-nav__link">
-    Arquivo ex3
+  <a href="#ponteiros-opacos" class="md-nav__link">
+    Ponteiros opacos
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vetores-dinamicos" class="md-nav__link">
+    Vetores dinâmicos
+  </a>
   
 </li>
       
@@ -632,7 +618,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/insper/sistemashardwaresoftware/edit/master/docs/aulas/07-loops/index.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/insper/sistemashardwaresoftware/edit/master/docs/aulas/11-tipos-de-dados/index.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -640,146 +626,103 @@
                   
                 
                 
-                <h1 id="07-loops">07 - Loops<a class="headerlink" href="#07-loops" title="Permanent link">&para;</a></h1>
-<h2 id="arquivo-ex1o">Arquivo <code>ex1.o</code><a class="headerlink" href="#arquivo-ex1o" title="Permanent link">&para;</a></h2>
-<p>Com base no código assembly abaixo(arquivo <code>ex1</code>) e responda os itens.</p>
-<div class="highlight"><pre><span></span><code><span class="nf">Dump</span> <span class="no">of</span> <span class="no">assembler</span> <span class="no">code</span> <span class="no">for</span> <span class="no">function</span> <span class="no">soma_2n</span><span class="p">:</span>
-   <span class="err">0</span><span class="nf">x066a</span> <span class="err">&lt;+</span><span class="mi">0</span><span class="err">&gt;</span><span class="p">:</span>     <span class="no">mov</span>    <span class="no">$0x1</span><span class="p">,</span><span class="nv">%eax</span>
-   <span class="err">0</span><span class="nf">x066f</span> <span class="err">&lt;+</span><span class="mi">5</span><span class="err">&gt;</span><span class="p">:</span>     <span class="no">jmp</span>    <span class="mh">0x676</span> <span class="p">&lt;</span><span class="no">soma_2n</span><span class="p">+</span><span class="mi">12</span><span class="p">&gt;</span>
-   <span class="err">0</span><span class="nf">x0671</span> <span class="err">&lt;+</span><span class="mi">7</span><span class="err">&gt;</span><span class="p">:</span>     <span class="no">shr</span>    <span class="nv">%edi</span>
-   <span class="err">0</span><span class="nf">x0673</span> <span class="err">&lt;+</span><span class="mi">9</span><span class="err">&gt;</span><span class="p">:</span>     <span class="no">add</span>    <span class="no">$0x1</span><span class="p">,</span><span class="nv">%eax</span>
-   <span class="err">0</span><span class="nf">x0676</span> <span class="err">&lt;+</span><span class="mi">12</span><span class="err">&gt;</span><span class="p">:</span>    <span class="no">cmp</span>    <span class="no">$0x1</span><span class="p">,</span><span class="nv">%edi</span>
-   <span class="err">0</span><span class="nf">x0679</span> <span class="err">&lt;+</span><span class="mi">15</span><span class="err">&gt;</span><span class="p">:</span>    <span class="no">ja</span>     <span class="mh">0x671</span> <span class="p">&lt;</span><span class="no">soma_2n</span><span class="p">+</span><span class="mi">7</span><span class="p">&gt;</span>
-   <span class="err">0</span><span class="nf">x067b</span> <span class="err">&lt;+</span><span class="mi">17</span><span class="err">&gt;</span><span class="p">:</span>    <span class="no">repz</span> <span class="no">retq</span>
+                <h1 id="11-tipos-abstratos-de-dados">11 - Tipos abstratos de dados<a class="headerlink" href="#11-tipos-abstratos-de-dados" title="Permanent link">&para;</a></h1>
+<h2 id="a-estrutura-point2d">A estrutura <code>Point2D</code><a class="headerlink" href="#a-estrutura-point2d" title="Permanent link">&para;</a></h2>
+<p>Vamos considerar primeiro uma estrutura usada para guardar um ponto 2D. Este tipo de estrutura seria útil ao trabalhar com algoritmos de Geometria Computacional ou mesmo em aplicações de física.</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">Point2D</span><span class="p">;</span>
 </code></pre></div>
-<div class="admonition question short">
-<p class="admonition-title">Question</p>
-<p>Localize no código acima as instruções de saltos (<code>jmp</code> ou condicionais <code>j*</code>). Desenhe setas indicando para qual linha do código elas pulam.</p>
-</div>
-<div class="admonition question short">
-<p class="admonition-title">Question</p>
-<p>Analise o fluxo de saltos do seu código. Existe um loop? Entre quais linhas?</p>
-<div class="admonition details">
-<p class="admonition-title">Resposta</p>
-<p>O loop ocorre entre as linhas <code>+5</code> e <code>+15</code>. </p>
-</div>
-</div>
-<div class="admonition question choice">
-<p class="admonition-title">Question</p>
-<p>Qual é a condição do loop acima? Ou seja, qual condição precisa ser verdade para que o loop <strong>continue rodando</strong>?</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>%edi &gt; 1</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>%edi &lt; 1</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>%edi &gt; 0</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>%eax &gt; 1</code></li>
-</ul>
-<div class="admonition details">
-<p class="admonition-title">Resposta</p>
-<p>Sempre comparamos o segundo em relação ao primeiro. Logo, fazemos <code>%edi &gt; 1</code>. A instrução <code>ja</code> representa a comparação <strong>jump above</strong>, que é uma comparação de <code>&gt;</code> feita entre variáveis <code>unsigned</code></p>
-</div>
-</div>
-<div class="admonition question short">
-<p class="admonition-title">Question</p>
-<p>Com base na sua resposta acima, como você escreveria esse loop como um <code>while</code>?</p>
-<div class="admonition details">
-<p class="admonition-title">Resposta</p>
-<p>Considerando que o primeiro argumento da função se chama <code>int arg1</code>, seria <code>while(arg1 &gt; 1)</code>.</p>
-</div>
-</div>
-<div class="admonition question medium">
-<p class="admonition-title">Question</p>
-<p>Comece fazendo uma versão <em>C</em> usando somente <code>if-goto</code></p>
-</div>
-<div class="admonition question medium">
-<p class="admonition-title">Question</p>
-<p>Transforme a construção que você fez acima em um código usando <code>while</code>.</p>
-</div>
-<hr />
-<h2 id="exercicios-para-entrega">Exercícios para entrega<a class="headerlink" href="#exercicios-para-entrega" title="Permanent link">&para;</a></h2>
-<p>Vamos agora exercitar o que vimos na aula expositiva. Os exercícios abaixo estão no repositório de atividades e as perguntas no handout tem o objetivo de ajudar a compreender código cada vez mais complexos.</p>
-<h3 id="arquivo-ex2">Arquivo <code>ex2</code><a class="headerlink" href="#arquivo-ex2" title="Permanent link">&para;</a></h3>
-<p>Leia o código assembly abaixo e responda.</p>
-<div class="highlight"><pre><span></span><code><span class="nf">Dump</span> <span class="no">of</span> <span class="no">assembler</span> <span class="no">code</span> <span class="no">for</span> <span class="no">function</span> <span class="no">soma_n</span><span class="p">:</span>
-   <span class="err">0</span><span class="nf">x066a</span> <span class="err">&lt;+</span><span class="mi">0</span><span class="err">&gt;</span><span class="p">:</span>     <span class="no">mov</span>    <span class="no">$0x0</span><span class="p">,</span><span class="nv">%edx</span>
-   <span class="err">0</span><span class="nf">x066f</span> <span class="err">&lt;+</span><span class="mi">5</span><span class="err">&gt;</span><span class="p">:</span>     <span class="no">mov</span>    <span class="no">$0x0</span><span class="p">,</span><span class="nv">%eax</span>
-   <span class="err">0</span><span class="nf">x0674</span> <span class="err">&lt;+</span><span class="mi">10</span><span class="err">&gt;</span><span class="p">:</span>    <span class="no">jmp</span>    <span class="mh">0x67f</span> <span class="p">&lt;</span><span class="no">soma_n</span><span class="p">+</span><span class="mi">21</span><span class="p">&gt;</span>
-   <span class="err">0</span><span class="nf">x0676</span> <span class="err">&lt;+</span><span class="mi">12</span><span class="err">&gt;</span><span class="p">:</span>    <span class="no">movslq</span> <span class="nv">%edx</span><span class="p">,</span><span class="nv">%rcx</span>
-   <span class="err">0</span><span class="nf">x0679</span> <span class="err">&lt;+</span><span class="mi">15</span><span class="err">&gt;</span><span class="p">:</span>    <span class="no">add</span>    <span class="nv">%rcx</span><span class="p">,</span><span class="nv">%rax</span>
-   <span class="err">0</span><span class="nf">x067c</span> <span class="err">&lt;+</span><span class="mi">18</span><span class="err">&gt;</span><span class="p">:</span>    <span class="no">add</span>    <span class="no">$0x1</span><span class="p">,</span><span class="nv">%edx</span>
-   <span class="err">0</span><span class="nf">x067f</span> <span class="err">&lt;+</span><span class="mi">21</span><span class="err">&gt;</span><span class="p">:</span>    <span class="no">cmp</span>    <span class="nv">%edi</span><span class="p">,</span><span class="nv">%edx</span>
-   <span class="err">0</span><span class="nf">x0681</span> <span class="err">&lt;+</span><span class="mi">23</span><span class="err">&gt;</span><span class="p">:</span>    <span class="no">jl</span>     <span class="mh">0x676</span> <span class="p">&lt;</span><span class="no">soma_n</span><span class="p">+</span><span class="mi">12</span><span class="p">&gt;</span>
-   <span class="err">0</span><span class="nf">x0683</span> <span class="err">&lt;+</span><span class="mi">25</span><span class="err">&gt;</span><span class="p">:</span>    <span class="no">repz</span> <span class="no">retq</span>
+<p>Vamos listar algumas operações que podem ser feitas com um ponto:</p>
+<ol>
+<li>Inicialização e finalização - todo ponto deve ser inicializado com algum valor para x e y.</li>
+<li>Somar dois pontos (e obter um terceiro);</li>
+<li>Calcular o coeficiente angular de uma reta que passe pelos dois pontos;</li>
+<li>Multiplicar ambas as coordenadas de um ponto (recebendo um novo em troca) - esta operação equivale a mudanças de escala</li>
+<li>Retornar os valores das componentes x e y do ponto;</li>
+</ol>
+<p>A ideia de um <em>Tipo Abstrato de Dados</em> é formalizar um "contrato" que lista quais operações podem ser feitas com este dado. Estas operações não dependem de nenhuma implementação em particular do tipo. Por exemplo, declarar o ponto com contendo um <code>double coords[2]</code> não muda os resultados de nenhuma das operações acima mas mudaria o código de acesso a coordenada <code>x</code> (<code>p.x</code> vs <code>p.coords[0]</code>). Veja um exemplo concreto de como fazer isto abaixo (arquivo <em>point2d.h</em>).</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#ifndef __POINT2D__</span>
+<span class="cp">#define __POINT2D__</span>
+
+<span class="k">struct</span> <span class="n">_p</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">_p</span> <span class="n">Point2D</span><span class="p">;</span>
+
+<span class="n">Point2D</span> <span class="o">*</span><span class="nf">point2D_new</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span> <span class="n">y</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">point2D_destroy</span><span class="p">(</span><span class="n">Point2D</span> <span class="o">*</span><span class="n">p</span><span class="p">);</span>
+
+<span class="kt">double</span> <span class="nf">point2D_get_x</span><span class="p">(</span><span class="n">Point2D</span> <span class="o">*</span><span class="n">p</span><span class="p">);</span>
+<span class="kt">double</span> <span class="nf">point2D_get_y</span><span class="p">(</span><span class="n">Point2D</span> <span class="o">*</span><span class="n">p</span><span class="p">);</span>
+
+<span class="n">Point2D</span> <span class="o">*</span><span class="nf">point2D_add</span><span class="p">(</span><span class="n">Point2D</span> <span class="o">*</span><span class="n">p1</span><span class="p">,</span> <span class="n">Point2D</span> <span class="o">*</span><span class="n">p2</span><span class="p">);</span>
+<span class="kt">double</span> <span class="nf">point2D_theta</span><span class="p">(</span><span class="n">Point2D</span> <span class="o">*</span><span class="n">p1</span><span class="p">,</span> <span class="n">Point2D</span> <span class="o">*</span><span class="n">p2</span><span class="p">);</span>
+<span class="n">Point2D</span> <span class="o">*</span><span class="nf">point2D_scale</span><span class="p">(</span><span class="n">Point2D</span> <span class="o">*</span><span class="n">p</span><span class="p">,</span> <span class="kt">double</span> <span class="n">s</span><span class="p">);</span>
+
+<span class="cp">#endif</span>
 </code></pre></div>
-<div class="admonition question short">
-<p class="admonition-title">Question</p>
-<p>Desenhe as flechas indicando o destino de cada instrução de pulo (<code>jmp</code> ou <code>j*</code>).</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Em <em>C</em> declaramos funções que podem ser usadas por outras partes do código em arquivos <code>.h</code> e implementamos essas funções em arquivos <code>.c</code> (de mesmo nome, muitas vezes). Assim conseguimos organizar nosso código em vários módulos e depois juntá-los no momento da compilação. </p>
+</div>
+<p>Notem que essa lista de operações "toma conta" da alocação e liberação de memória. Ou seja, o usuário de nosso <code>Point2D</code> não precisa se preocupar com malloc ou free. Basta que ele chame nossas funções.</p>
+<div class="admonition tip">
+<p class="admonition-title">Por que todas as funções começam com <code>point2D_</code>?</p>
+<p>Em <em>C</em> não existe o conceito de módulo, namespace ou qualquer outro tipo de mecanismo de importar código. Toda função, a princípio, é declarada no escopo global de nomes. Isso significa que se nomeássemos <code>point2D_add</code> simplesmente como <code>add</code> nenhuma outra função escrita, por nós ou de nenhuma outra biblioteca usada no nosso programa, poderia ter esse nome.</p>
+<p>A estratégia usada nesse caso, é usar um prefixo que indique a qual biblioteca a função pertence. No nosso caso, usamos <code>point2D_</code> em todas as funções para evitar colisões de nomes. </p>
+</div>
+<h3 id="ponteiros-opacos">Ponteiros opacos<a class="headerlink" href="#ponteiros-opacos" title="Permanent link">&para;</a></h3>
+<p>Note que no exemplo acima a definição do <code>struct</code> <code>Point2D</code> não está inclusa no arquivo <code>point2d.h</code>! Por conta de ponteiro se um tipo de dado em <em>C</em>, podemos declarar ponteiros para <code>Point2D</code> e passá-los para as funções de nosso <em>TAD</em> <em>mesmo sem saber a definição exata de onde eles apontam!</em>. Só não podemos tentar acessar <em>a variável apontada</em> por este ponteiros (usando <code>*</code> ou <code>-&gt;</code>). Por isso, <strong>alocação dinâmica de memória</strong> é essencial em <em>TAD*s: ela permite que todos os detalhes da implementação interna estejam **encapsulados*</em> e que só possamos interagir com o tipo via as funções definidas para isso.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Abra o arquivo <code>test_point2d.c</code>. Você consegue entender seu conteúdo? Examine o código e entenda como <code>Point2D</code> deve ser usado.</p>
 </div>
 <div class="admonition question short">
 <p class="admonition-title">Question</p>
-<p>Escreva abaixo o cabeçalho da função <code>soma_n</code>. <strong>Dica</strong>: procure por registradores que são lidos <em>antes</em> de serem escritos.</p>
+<p>Compile o arquivo <code>test_point2d.c</code> usando a seguinte linha de comando. Rode-o logo em seguida. O que significa sua saída?</p>
+<blockquote>
+<p><code>$ gcc -Og -Wall -g test_point2d.c point2d.c -o teste_ponto</code></p>
+</blockquote>
 </div>
-<div class="admonition question medium">
-<p class="admonition-title">Question</p>
-<p>Faça a tradução do código acima para <em>C</em> usando somente <code>if-goto</code></p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Abra o arquivo <code>point2d.c</code> e complete as partes faltantes. Verifique se tudo funciona corretamente usando <code>test_point2d.c</code>. Você deve aproveitar ao máximo as funções já criadas (ou seja, pode usar <code>point2d_new</code> nas outras funções).</p>
 </div>
-<div class="admonition question medium">
-<p class="admonition-title">Question</p>
-<p>Converta o código acima para uma versão legível em <em>C</em>.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Agora que sua implementação do <em>TAD</em> <code>Point2D</code> está completa, compile o arquivo <code>test_point2d.c</code> e execute-o usando o <em>Valgrind</em>. Seu programa deverá rodar sem erros.</p>
 </div>
-<h3 id="arquivo-ex3">Arquivo <code>ex3</code><a class="headerlink" href="#arquivo-ex3" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nf">Dump</span> <span class="no">of</span> <span class="no">assembler</span> <span class="no">code</span> <span class="no">for</span> <span class="no">function</span> <span class="no">ex3</span><span class="p">:</span>
-    <span class="err">0</span><span class="nf">x1139</span> <span class="err">&lt;+</span><span class="mi">0</span><span class="err">&gt;</span><span class="p">:</span>     <span class="no">mov</span>    <span class="no">$0x0</span><span class="p">,</span><span class="nv">%ecx</span>
-    <span class="err">0</span><span class="nf">x113e</span> <span class="err">&lt;+</span><span class="mi">5</span><span class="err">&gt;</span><span class="p">:</span>     <span class="no">mov</span>    <span class="no">$0x0</span><span class="p">,</span><span class="nv">%r8d</span>
-    <span class="err">0</span><span class="nf">x1144</span> <span class="err">&lt;+</span><span class="mi">11</span><span class="err">&gt;</span><span class="p">:</span>    <span class="no">jmp</span>    <span class="mh">0x114a</span> <span class="p">&lt;</span><span class="no">ex4</span><span class="p">+</span><span class="mi">17</span><span class="p">&gt;</span>
-    <span class="err">0</span><span class="nf">x1146</span> <span class="err">&lt;+</span><span class="mi">13</span><span class="err">&gt;</span><span class="p">:</span>    <span class="no">add</span>    <span class="no">$0x1</span><span class="p">,</span><span class="nv">%rcx</span>
-    <span class="err">0</span><span class="nf">x114a</span> <span class="err">&lt;+</span><span class="mi">17</span><span class="err">&gt;</span><span class="p">:</span>    <span class="no">cmp</span>    <span class="nv">%rdi</span><span class="p">,</span><span class="nv">%rcx</span>
-    <span class="err">0</span><span class="nf">x114d</span> <span class="err">&lt;+</span><span class="mi">20</span><span class="err">&gt;</span><span class="p">:</span>    <span class="no">jge</span>    <span class="mh">0x1161</span> <span class="p">&lt;</span><span class="no">ex4</span><span class="p">+</span><span class="mi">40</span><span class="p">&gt;</span>
-    <span class="err">0</span><span class="nf">x114f</span> <span class="err">&lt;+</span><span class="mi">22</span><span class="err">&gt;</span><span class="p">:</span>    <span class="no">mov</span>    <span class="nv">%rcx</span><span class="p">,</span><span class="nv">%rax</span>
-    <span class="err">0</span><span class="nf">x1152</span> <span class="err">&lt;+</span><span class="mi">25</span><span class="err">&gt;</span><span class="p">:</span>    <span class="no">cqto</span>
-    <span class="err">0</span><span class="nf">x1154</span> <span class="err">&lt;+</span><span class="mi">27</span><span class="err">&gt;</span><span class="p">:</span>    <span class="no">idiv</span>   <span class="nv">%rsi</span>
-    <span class="err">0</span><span class="nf">x1157</span> <span class="err">&lt;+</span><span class="mi">30</span><span class="err">&gt;</span><span class="p">:</span>    <span class="no">test</span>   <span class="nv">%rdx</span><span class="p">,</span><span class="nv">%rdx</span>
-    <span class="err">0</span><span class="nf">x115a</span> <span class="err">&lt;+</span><span class="mi">33</span><span class="err">&gt;</span><span class="p">:</span>    <span class="no">jne</span>    <span class="mh">0x1146</span> <span class="p">&lt;</span><span class="no">ex4</span><span class="p">+</span><span class="mi">13</span><span class="p">&gt;</span>
-    <span class="err">0</span><span class="nf">x115c</span> <span class="err">&lt;+</span><span class="mi">35</span><span class="err">&gt;</span><span class="p">:</span>    <span class="no">add</span>    <span class="nv">%rcx</span><span class="p">,</span><span class="nv">%r8</span>
-    <span class="err">0</span><span class="nf">x115f</span> <span class="err">&lt;+</span><span class="mi">38</span><span class="err">&gt;</span><span class="p">:</span>    <span class="no">jmp</span>    <span class="mh">0x1146</span> <span class="p">&lt;</span><span class="no">ex4</span><span class="p">+</span><span class="mi">13</span><span class="p">&gt;</span>
-    <span class="err">0</span><span class="nf">x1161</span> <span class="err">&lt;+</span><span class="mi">40</span><span class="err">&gt;</span><span class="p">:</span>    <span class="no">mov</span>    <span class="nv">%r8</span><span class="p">,</span><span class="nv">%rax</span>
-    <span class="err">0</span><span class="nf">x1164</span> <span class="err">&lt;+</span><span class="mi">43</span><span class="err">&gt;</span><span class="p">:</span>    <span class="no">retq</span>
+<h2 id="vetores-dinamicos">Vetores dinâmicos<a class="headerlink" href="#vetores-dinamicos" title="Permanent link">&para;</a></h2>
+<p>Agora que já vimos vetores dinâmicos em aula, vamos implementá-los. Nosso vetor tem a seguinte interface:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#ifndef __VECINT_H__</span>
+<span class="cp">#define __VECINT_H__</span>
+
+<span class="k">struct</span> <span class="n">_vec_int</span><span class="p">;</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">_vec_int</span> <span class="n">vec_int</span><span class="p">;</span>
+
+<span class="n">vec_int</span> <span class="o">*</span><span class="nf">vec_int_create</span><span class="p">();</span>
+<span class="kt">void</span> <span class="nf">vec_int_destroy</span><span class="p">(</span><span class="n">vec_int</span> <span class="o">**</span><span class="n">v</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="nf">vec_int_size</span><span class="p">(</span><span class="n">vec_int</span> <span class="o">*</span><span class="n">v</span><span class="p">);</span>
+
+<span class="cm">/* As seguinte operações devolvem</span>
+<span class="cm"> * 1 se pos é uma posição válida e a operação foi bem sucedida</span>
+<span class="cm"> * 0 caso contrário</span>
+<span class="cm"> *</span>
+<span class="cm"> * No caso de at, o valor é retornado na variável apontada por vi.</span>
+<span class="cm"> */</span>
+<span class="kt">int</span> <span class="nf">vec_int_at</span><span class="p">(</span><span class="n">vec_int</span> <span class="o">*</span><span class="n">v</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pos</span><span class="p">,</span> <span class="kt">int</span> <span class="o">*</span><span class="n">vi</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">vec_int_insert</span><span class="p">(</span><span class="n">vec_int</span> <span class="o">*</span><span class="n">v</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pos</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">vec_int_remove</span><span class="p">(</span><span class="n">vec_int</span> <span class="o">*</span><span class="n">v</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pos</span><span class="p">);</span>
+
+<span class="cp">#endif</span>
 </code></pre></div>
-<div class="admonition question short">
-<p class="admonition-title">Question</p>
-<p>Quantos argumentos a função acima recebe? Quais seus tipos?</p>
-<p><strong>Dica</strong>: não se esqueça de buscar por registradores que são lidos antes de serem escritos.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p><strong>Entrega</strong>: implemente a estrutura <em>vetor dinâmico</em> no arquivo <em>vec_int.c</em> e compile o programa de testes da mesma maneira que foi feito na parte anterior. Para sua entrega estar 100% seu programa de testes deverá rodar sem erros no <em>valgrind</em>.</p>
 </div>
-<div class="admonition question short">
-<p class="admonition-title">Question</p>
-<p>A função retorna algum valor? Se sim, qual seu tipo?</p>
-</div>
-<div class="admonition question short">
-<p class="admonition-title">Question</p>
-<p>A função acima combina loops e condicionais. Desenhe setas para onde as instruções de <code>jmp</code> apontam.</p>
-</div>
-<div class="admonition question short">
-<p class="admonition-title">Question</p>
-<p>Com base no exercício anterior, entre quais linhas o loop ocorre? E a condicional?</p>
-</div>
-<div class="admonition question short">
-<p class="admonition-title">Question</p>
-<p>O loop acima tem uma variável contadora. Ela está em qual registrador? Qual seu tipo?</p>
-</div>
-<div class="admonition question short">
-<p class="admonition-title">Question</p>
-<p>Revise o funcionamento da instrução <code>idiv</code>. Em qual registrador é armazenado o resultado da divisão? E o resto?</p>
-</div>
-<div class="admonition question short">
-<p class="admonition-title">Question</p>
-<p>Qual a condição testada na condicional?</p>
-</div>
-<div class="admonition question long">
-<p class="admonition-title">Question</p>
-<p>Escreva uma versão do código acima usando somente <code>if-goto</code>.</p>
-</div>
-<div class="admonition question long">
-<p class="admonition-title">Question</p>
-<p>Escreva uma versão legível do código acima.</p>
+<div class="admonition warning">
+<p class="admonition-title">Os arquivos estão na pasta <code>08-tad</code> do repositório de entregas.</p>
 </div>
                 
               
@@ -799,7 +742,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../06-condicionais-funcoes/" title="06 - Condicionais e funções" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../10-malloc/" title="10 - Alocação Dinâmica de Memória" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -808,19 +751,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                06 - Condicionais e funções
+                10 - Alocação Dinâmica de Memória
               </div>
             </div>
           </a>
         
         
-          <a href="../08-variaveis-locais/" title="08 - Variáveis locais" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../labs/bomblab/" title="Bomb Lab" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                08 - Variáveis locais
+                Bomb Lab
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
