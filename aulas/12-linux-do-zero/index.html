@@ -520,20 +520,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#ferramentas-de-modo-usuario-busybox" class="md-nav__link">
-    Ferramentas de modo usuário - busybox
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#criando-o-sistema-de-arquivos" class="md-nav__link">
-    Criando o sistema de arquivos
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -648,20 +634,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#ferramentas-de-modo-usuario-busybox" class="md-nav__link">
-    Ferramentas de modo usuário - busybox
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#criando-o-sistema-de-arquivos" class="md-nav__link">
-    Criando o sistema de arquivos
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -757,38 +729,6 @@
 <p>Verifique que foi criado o arquivo <code>bzImage</code> na pasta <code>linux-X.Y.Z/arch/x86_64/boot/</code>. Este é o arquivo executável contendo o kernel Linux que compilamos.</p>
 </div>
 <h2 id="sistema-de-arquivos-e-discos-virtuais">Sistema de Arquivos e discos virtuais<a class="headerlink" href="#sistema-de-arquivos-e-discos-virtuais" title="Permanent link">&para;</a></h2>
-<h2 id="ferramentas-de-modo-usuario-busybox">Ferramentas de modo usuário - <code>busybox</code><a class="headerlink" href="#ferramentas-de-modo-usuario-busybox" title="Permanent link">&para;</a></h2>
-<p>Agora que já temos uma interface com o kernel via <code>glibc</code> precisamos de programas básicos para utilizar nosso sistema. Estamos falando de programas como <code>cp</code>, <code>ls</code> e até mesmo o nosso shell (<code>bash</code>). Assim como o kernel e a libc, o padrão <em>POSIX</em> também diz como esses programas deverão funcionar, fazendo com que sua utilização básica seja igual em qualquer sistema compatível. Lembre-se que o kernel não faz nada, ele apenas <em>intermedia</em> o acesso ao hardware. Precisamos então de programas que irão tornar esse hardware útil.</p>
-<p>O <em>busybox</em>(<a href="https://busybox.net/about.html">https://busybox.net/about.html</a>) é um conjunto de ferramentas modo usuário bastante compacto e rápido. Ele contém implementações leves dos executáveis <code>ash</code> (shell leve alternativo ao <code>bash</code>), <code>ls</code>, <code>vi</code>, <code>pwd</code>, etc. Sua vantagem é o baixo consumo de memória e seu tamanho pequeno após compilado. É muito usado em sistemas embarcados.</p>
-<p>Vamos começar baixando os fontes da versão <code>1.31.1</code>. A compilação é feita no mesmo esquema do kernel:</p>
-<div class="highlight"><pre><span></span><code>$&gt; make defconfig
-$&gt; make menuconfig
-</code></pre></div>
-<div class="admonition question medium">
-<p class="admonition-title">Question</p>
-<p>O busy box disponibiliza um grande número de ferramentas. Procure no menu acima o lugar onde são listados os editores de texto disponíveis no <em>busybox</em>.</p>
-</div>
-<p>Desta vez iremos fazer uma modificação nas configurações padrão. Como queremos que esses executáveis pequenos, muito rápidos e que rodem sem qualquer outro tipo de serviço carregado no sistema, iremos compilá-los <strong>estaticamente</strong>.</p>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p>Procure a opção para lincar o <code>busybox</code>estaticamente (Submenu <em>Settings</em>), habilite-a e faça a compilação.</p>
-<div class="highlight"><pre><span></span><code>$&gt; make -j8
-</code></pre></div>
-</div>
-<p>Isto demorará bem menos que a compilação do kernel e pode ser feito enquanto outras coisas acontecem. Após a compilação um executável <code>busybox</code> deverá ter sido gerado na pasta <em>busybox-1.31.1</em>.</p>
-<p>O <code>busybox</code> inclui, em um só executável, todas ferramentas listadas acima. Para executá-las basta passar o nome da ferramenta escolhida como argumento. Veja o exemplo abaixo.</p>
-<div class="highlight"><pre><span></span><code>$&gt; ./busybox ls
-</code></pre></div>
-<p>Se tudo funcionou igual ao <code>ls</code> padrão de seu sistema então passe para o próximo passo.</p>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p>Execute <code>busybox ls --help</code>. Compare a saída com <code>ls --help</code>. Existe diferença? Procure na saída do <code>ls</code> do seu sistema qual a implementação utilizada.</p>
-</div>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p>Você pode obter uma lista completa de todas as ferramentas que o busybox oferece executando <code>busybox --list-full</code>. Execute o comando e interprete sua saída. Esses comandos estão disponíveis no seu sistema atual?</p>
-</div>
-<h2 id="criando-o-sistema-de-arquivos">Criando o sistema de arquivos<a class="headerlink" href="#criando-o-sistema-de-arquivos" title="Permanent link">&para;</a></h2>
 <p>Agora que já temos um kernel e um programa que será rodado pelo nosso sistema, vamos criar a primeira versão do disco de nosso sistema. Nossa primeira organização do sistema será incrivelmente minimal e rudimentar. Nosso sistema disco conterá apenas um arquivo: o executável <code>hello</code> criado no item anterior.</p>
 <p>Vamos começar criando um arquivo vazio de <em>100Mb</em> que será usado como nosso diretório raiz <code>/</code>.</p>
 <div class="admonition example">
