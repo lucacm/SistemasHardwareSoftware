@@ -1,0 +1,936 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="Igor Montagner">
+      
+      
+        <link rel="canonical" href="https://insper.github.io/SistemasHardwareSoftware/aulas/15-linux-do-zero-II/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.3">
+    
+    
+      
+        <title>15 - Linux do Zero II: processos de usuário e I/O - Sistemas Hardware-Software - 2021/1</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e35208c4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#795649">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../css/printing.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="brown" data-md-color-accent="amber">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#15-linux-do-zero-ii-processos-de-usuario-e-io" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Sistemas Hardware-Software - 2021/1" class="md-header__button md-logo" aria-label="Sistemas Hardware-Software - 2021/1" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sistemas Hardware-Software - 2021/1
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              15 - Linux do Zero II: processos de usuário e I/O
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/insper/sistemashardwaresoftware/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sistemashardwaresoftware
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Sistemas Hardware-Software - 2021/1" class="md-nav__button md-logo" aria-label="Sistemas Hardware-Software - 2021/1" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Sistemas Hardware-Software - 2021/1
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/insper/sistemashardwaresoftware/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sistemashardwaresoftware
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sobre/" class="md-nav__link">
+        Burocracias
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        Aulas
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Aulas" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Aulas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-inteiros/" class="md-nav__link">
+        01 - Inteiros na CPU
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-ram/" class="md-nav__link">
+        02 - Representação de dados em RAM
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-arquitetura-x86/" class="md-nav__link">
+        03 - Arquitetura x86-64
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-funcoes-mov/" class="md-nav__link">
+        04 -  Funções
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-condicionais/" class="md-nav__link">
+        05 - Condicionais
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-condicionais-funcoes/" class="md-nav__link">
+        06 - Condicionais e funções
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-loops/" class="md-nav__link">
+        07 - Loops
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-variaveis-locais/" class="md-nav__link">
+        08 - Variáveis locais
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-arrays/" class="md-nav__link">
+        09 - Array em Assembly
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-malloc/" class="md-nav__link">
+        10 - Alocação Dinâmica de Memória
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-tipos-de-dados/" class="md-nav__link">
+        11 - Tipos abstratos de dados
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-linux-do-zero/" class="md-nav__link">
+        12 - Linux do Zero
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-processos/" class="md-nav__link">
+        13 - Processos
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-exec/" class="md-nav__link">
+        15 - Carregamento de programas
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          15 - Linux do Zero II: processos de usuário e I/O
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        15 - Linux do Zero II: processos de usuário e I/O
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-biblioteca-padrao-libc" class="md-nav__link">
+    A biblioteca padrão - libc
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ferramentas-de-modo-usuario-busybox" class="md-nav__link">
+    Ferramentas de modo usuário - busybox
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#organizando-nossos-dados" class="md-nav__link">
+    Organizando nossos dados
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#um-segundo-boot" class="md-nav__link">
+    Um segundo boot
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sistema-de-inicializacao" class="md-nav__link">
+    Sistema de inicialização
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Labs
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Labs" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Labs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/bomblab/" class="md-nav__link">
+        Bomb Lab
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-biblioteca-padrao-libc" class="md-nav__link">
+    A biblioteca padrão - libc
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ferramentas-de-modo-usuario-busybox" class="md-nav__link">
+    Ferramentas de modo usuário - busybox
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#organizando-nossos-dados" class="md-nav__link">
+    Organizando nossos dados
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#um-segundo-boot" class="md-nav__link">
+    Um segundo boot
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sistema-de-inicializacao" class="md-nav__link">
+    Sistema de inicialização
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/insper/sistemashardwaresoftware/edit/master/docs/aulas/15-linux-do-zero-II/index.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="15-linux-do-zero-ii-processos-de-usuario-e-io">15 - Linux do Zero II: processos de usuário e I/O<a class="headerlink" href="#15-linux-do-zero-ii-processos-de-usuario-e-io" title="Permanent link">&para;</a></h1>
+<p>Agora que já conseguimos criar processos e executar programas vamos adicionar processos de usuários úteis ao nosso sistema da aula 12!</p>
+<div class="admonition tip">
+<p class="admonition-title">Recapitulação</p>
+<p>Na aula 12 montamos um sistema de arquivos minimal com apenas um processo (<code>/hello</code>) que mostrava uma mensagem de erro e parava. Agora vamos permitir que o usuário execute programas nesse sistema!</p>
+</div>
+<h2 id="a-biblioteca-padrao-libc">A biblioteca padrão - <code>libc</code><a class="headerlink" href="#a-biblioteca-padrao-libc" title="Permanent link">&para;</a></h2>
+<p>A biblioteca padrão <em>C</em> contém uma função em <em>C</em> para cada chamada de sistema disponível e interpreta os códigos de erro, deixando-os em um formato (um pouco) mais amigável. Como vimos em aula, realizar chamadas de sistema é uma tarefa que depende do hardware e por isso é diferente em cada arquitetura (ARM vs x86, por exemplo). Logo, a <code>libc</code> oferece uma camada de abstração maior acima do sistema operacional, já que programas construídos usando suas função são portáveis em nível de código fonte. Ou seja, necessitando somente a recompilação do executável para funcionar em outras plataformas. Ela também oferece as funcionalidades necessárias para carregar dinamicamente bibliotecas <code>.so</code>, como vimos na parte final da aula 12. Por outro lado, além do kernel precisamos portar a <code>libc</code> também cada vez que trabalhamos com arquiteturas novas.</p>
+<p>Neste exemplo iremos usar a <code>glibc</code>, implementação feita pela GNU e usada na maioria das distribuições. Desta vez não precisamos compilar nada: ela já está instalada no nosso sistema e podemos simplesmente usá-la na próxima parte.</p>
+<h2 id="ferramentas-de-modo-usuario-busybox">Ferramentas de modo usuário - <code>busybox</code><a class="headerlink" href="#ferramentas-de-modo-usuario-busybox" title="Permanent link">&para;</a></h2>
+<p>Agora que já temos uma interface com o kernel via <code>glibc</code> precisamos de programas básicos para utilizar nosso sistema. Estamos falando de programas como <code>cp</code>, <code>ls</code> e até mesmo o nosso shell (<code>bash</code>). Assim como o kernel e a libc, o padrão <em>POSIX</em> também diz como esses programas deverão funcionar, fazendo com que sua utilização básica seja igual em qualquer sistema compatível. Lembre-se que o kernel não faz nada, ele apenas <em>intermedia</em> o acesso ao hardware. Precisamos então de programas que irão tornar esse hardware útil.</p>
+<p>O <em>busybox</em>(<a href="https://busybox.net/about.html">https://busybox.net/about.html</a>) é um conjunto de ferramentas modo usuário bastante compacto e rápido. Ele contém implementações leves dos executáveis <code>ash</code> (shell leve alternativo ao <code>bash</code>), <code>ls</code>, <code>vi</code>, <code>pwd</code>, etc. Sua vantagem é o baixo consumo de memória e seu tamanho pequeno após compilado. É muito usado em sistemas embarcados.</p>
+<p>Vamos começar baixando os fontes da versão <code>1.32.1</code>. A compilação é feita no mesmo esquema do kernel:</p>
+<div class="highlight"><pre><span></span><code>$&gt; make defconfig
+$&gt; make menuconfig
+</code></pre></div>
+<div class="admonition question medium">
+<p class="admonition-title">Question</p>
+<p>O busy box disponibiliza um grande número de ferramentas. Procure no menu acima o lugar onde são listados os editores de texto disponíveis no <em>busybox</em>.</p>
+</div>
+<p>Desta vez iremos fazer uma modificação nas configurações padrão. Como queremos que esses executáveis pequenos, muito rápidos e que rodem sem qualquer outro tipo de serviço carregado no sistema, iremos compilá-los <strong>estaticamente</strong>.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Procure a opção para lincar o <code>busybox</code>estaticamente (Submenu <em>Settings</em>), habilite-a e faça a compilação.</p>
+<div class="highlight"><pre><span></span><code>$&gt; make -j8
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Cheque que seu executável <code>busybox</code> realmente não tem dependências usando o comando <code>ldd</code>.</p>
+</div>
+<p>Isto demorará bem menos que a compilação do kernel e pode ser feito enquanto outras coisas acontecem. Após a compilação um executável <code>busybox</code> deverá ter sido gerado na pasta <em>busybox-1.32.1</em>.</p>
+<p>O <code>busybox</code> inclui, em um só executável, todas ferramentas listadas acima. Para executá-las basta passar o nome da ferramenta escolhida como argumento. Veja o exemplo abaixo.</p>
+<div class="highlight"><pre><span></span><code>$&gt; ./busybox ls
+</code></pre></div>
+<p>Se tudo funcionou igual ao <code>ls</code> padrão de seu sistema então passe para o próximo passo.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Execute <code>busybox ls --help</code>. Compare a saída com <code>ls --help</code>. Existe diferença? Procure na saída do <code>ls</code> do seu sistema qual a implementação utilizada.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Você pode obter uma lista completa de todas as ferramentas que o busybox oferece executando <code>busybox --list-full</code>. Execute o comando e interprete sua saída. Esses comandos estão disponíveis no seu sistema atual?</p>
+</div>
+<p>Usar as utilidades do <code>busybox</code> como mostrado acima não é muito prático. Por isso ele oferece a possibilidade de ser chamado de uma maneira diferente. Vejamos abaixo:</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Vamos primeiro criar um link simbólico de <code>busybox</code> para o nome <code>ls</code>:</p>
+<p><code>ln -s ./busybox ./ls</code></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Um link simbólico é um novo nome para um arquivo. Ambos apontam para o mesmo dado no disco, mas possivelmente em caminhos distintos no sistema.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Execute <code>./ls</code> e veja o que acontece.</p>
+</div>
+<p>Tanto <code>./ls</code> quanto <code>./busybox</code> apontam para os mesmos dados no disco, porém o <code>busybox</code> é programado para checar <code>argv[0]</code> ao iniciar. Ou seja, se ele for chamado com <code>argv[0]</code> igual a <code>"ls"</code> essa ferramenta já é executada automaticamente! Podemos criar links simbólicos para todas as ferramentas listadas nas tarefas anteriores e usá-las diretamente! Faremos isso mais para frente.</p>
+<h2 id="organizando-nossos-dados">Organizando nossos dados<a class="headerlink" href="#organizando-nossos-dados" title="Permanent link">&para;</a></h2>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Verifique que seu sistema contém todas as pastas da <em>Tarefa 22</em> da aula 12.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Para as próximas tarefas você precisará da sua imagem de disco montada em <code>raiz_linux</code> novamente. Não se lembra como fazer isso? Volte na aula 12 e reveja.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Dê permissões totais para a pasta <code>tmp</code> e somente para o usuário dono na pasta <code>root</code>.</p>
+<div class="highlight"><pre><span></span><code>#&gt; chmod 777 tmp
+#&gt; chmod 600 root
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Copie o executável do <em>busybox</em> para a pasta <code>raiz_linux/usr/bin</code>.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Execute o comando abaixo na dentro de <code>raiz_linux/</code>.</p>
+<div class="highlight"><pre><span></span><code>for util in $(./usr/bin/busybox --list-full); do
+ ln -s /usr/bin/busybox $util
+done
+</code></pre></div>
+</div>
+<p>Agora criamos links simbólicos de todas as ferramentas de usuário mais comuns e já conseguiremos usar nosso sistema!</p>
+<h2 id="um-segundo-boot">Um segundo boot<a class="headerlink" href="#um-segundo-boot" title="Permanent link">&para;</a></h2>
+<p>Vamos agora usar essas ferramentas de usuário em nosso sistema. Elas já estão nos lugares corretos (<code>/bin/</code> para os utilitários padrão e <code>/sbin</code> para os utilitários de administração), então poderemos usá-los diretamente no nosso sistema Linux. </p>
+<div class="admonition tip">
+<p class="admonition-title">Não se esqueça de <code>umount</code> sua imagem antes de fazer o boot.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Realize novamente o boot com o <code>qemu</code>, mas desta vez use <code>init=/bin/ash</code>. Ou seja, o primeiro processo de usuário agora será um shell que nos permitirá executar comandos no nosso sistema.</p>
+</div>
+<div class="admonition question medium">
+<p class="admonition-title">Question</p>
+<p>Tente fazer as seguintes operações no seu sistema:</p>
+<ol>
+<li>mudar de diretórios com  <code>cd</code></li>
+<li>listas conteúdos das pastas com <code>ls</code></li>
+<li>criar arquivos no disco com <code>touch</code> ou <code>vi</code></li>
+<li>mostrar espaço livre no disco com <code>df</code></li>
+<li>listar hardware disponível com <code>lspci</code></li>
+</ol>
+<p>Anote quais funcionaram e, se der erro, anote o erro.</p>
+</div>
+<div class="admonition progress">
+<p class="admonition-title">Progress</p>
+<p>Clique aqui após tentar as operações acima</p>
+</div>
+<p>Você deve ter notado que não foi possível nem criar arquivos nem executar os comandos <code>df</code> e <code>lspci</code>. Isso ocorre pois não <strong>inicializamos o sistema de entrada e saída de nosso Linux</strong>. Ou seja, não cumprimos todas as etapas necessárias para que os programas de usuário possam se comunicar com o kernel.</p>
+<p>Vamos fazer isso manualmente hoje e, em uma próxima atividade, iremos completar a inicialização do nosso sistema.</p>
+<div class="admonition example short">
+<p class="admonition-title">Example</p>
+<p>O sistema de arquivos carregado inicialmente pelo kernel é montado em modo <em>somente leitura</em>. Pesquise como <em>remontar</em> um sistema de arquivos para <em>leitura e escrita</em> e escreva o comando abaixo.</p>
+<div class="admonition details">
+<p class="admonition-title">Resposta</p>
+<p><code>mount -o remount,rw /</code></p>
+</div>
+</div>
+<p>Os sistemas de arquivos <code>proc</code> e <code>sys</code> expõem informações do kernel a processos de usuário e são essenciais para o funcionamento de diversos programas. Eles são criados em tempo de execução usando o comando <code>mount</code></p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Rode os seguintes comandos e verifique que agora <code>df</code> e <code>lspci</code> funcionam corretamente.</p>
+<div class="highlight"><pre><span></span><code>#&gt; mount -t proc proc /proc -o nosuid,noexec,nodev
+#&gt; mount -t sysfs sys /sys -o nosuid,noexec,nodev
+</code></pre></div>
+</div>
+<p>Vamos explorar um pouco o diretório <code>/proc</code>:</p>
+<div class="admonition question short">
+<p class="admonition-title">Question</p>
+<p>Entre em <code>/proc</code> e procure por um arquivo que possa conter informações sobre a CPU atual. Anote seu nome abaixo e mostre seu conteúdo no terminal usando <code>cat</code></p>
+<div class="admonition details">
+<p class="admonition-title">Details</p>
+<p><code>/proc/cpuinfo</code></p>
+</div>
+</div>
+<div class="admonition question short">
+<p class="admonition-title">Question</p>
+<p>Que outras informações você pode obter em <code>/proc</code>? Liste algumas abaixo.</p>
+</div>
+<p>Agora que conseguimos configurar uma parte minimal de nosso sistema vários dos comandos já devem estar plenamente funcionais. Porém, note que fizemos essas alterações manualmente. Logo, ao reiniciarmos teremos que fazer tudo isso novamente!. </p>
+<h2 id="sistema-de-inicializacao">Sistema de inicialização<a class="headerlink" href="#sistema-de-inicializacao" title="Permanent link">&para;</a></h2>
+<p>O <em>busybox</em> já nos fornece um sistema de inicialização minimal que, entre outras coisas, rodaria estes comandos automaticamente a todo boot. Aproveitaremos ele para três propósitos:</p>
+<ol>
+<li>executar um script de inicialização que configure todos os diretórios especiais e serviços.</li>
+<li>adicionar serviços que proveem uma tela de login</li>
+<li>executar um script de finalização que desliga o hardware quando o PC for desligado.</li>
+</ol>
+<p>Primeiro vamos copiar versões padrão de todos os arquivos de configuração necessários. Os seguintes arquivos estão na pasta <code>configs</code> do repositório da aula.</p>
+<ul>
+<li><code>passwd, shadow, groups</code>: listam os usuários e grupos presentes. <code>shadows</code> contém hashes das senhas.</li>
+<li><code>profile</code>: é executado logo após um login correto. Pode ser usado para configurar o terminal.</li>
+<li><code>issue</code>: contém o nome do seu sistema mostrado na tela de login.</li>
+<li><code>hosts</code>: associa um nome com alguns IPs. É aqui que associamos <em>localhost</em> a <code>127.0.0.1</code></li>
+<li><code>hostname</code>: configura o nome da nossa máquina na rede.</li>
+<li><code>fstab</code>: lista todos os discos que devem ser montados além do <em>rootfs</em>.</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Copie estes arquivos para o <code>etc</code> do seu sistema.</p>
+</div>
+<p>O sistema de <code>init</code> disponibilizado pelo <em>busybox</em> lê o arquivo <code>/etc/inittab</code> e o interpreta de acordo com as regras mostradas no arquivo <em>busybox-1.30.1/examples/inittab</em>. Iremos usar o arquivo disponível em <code>configs/inittab</code>.</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Leia o arquivo <code>config/inittab</code> e tente interpretar seu conteúdo.</p>
+</div>
+<p>A primeira coluna do arquivo mostra o momento em que ela deve rodar. Vemos, por exemplo, que o script <code>/etc/init.d/startup</code> rodará ao inicializar o sistema e que toda vez que o processo <code>/sbin/getty</code> (terminal com login) terminar ele é reiniciado. Também existem scripts para serem rodados ao desligar o sistema.</p>
+<p>Em especial, este arquivo <code>/etc/init.d/startup</code> (presente no repositório como <code>configs/init.d/startup</code>) contém comandos para configurar o sistema, incluindo os diretórios especiais que mostramos acima. Seu conteúdo é mostrado abaixo por completude.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Monta os sistemas de arquivos especiais</span>
+mount -t proc proc /proc -o nosuid,noexec,nodev
+mount -t sysfs sys /sys -o nosuid,noexec,nodev
+
+<span class="c1"># Configura detector de dispositivos</span>
+mkdir -p /dev/pts /dev/shm
+mount -t tmpfs shm /dev/shm -o <span class="nv">mode</span><span class="o">=</span><span class="m">1777</span>,nosuid,nodev
+mdev -s
+<span class="nb">echo</span> /sbin/mdev &gt; /proc/sys/kernel/hotplug
+
+<span class="c1"># Configura terminais</span>
+mount -t devpts devpts /dev/pts -o <span class="nv">mode</span><span class="o">=</span><span class="m">0620</span>,gid<span class="o">=</span><span class="m">5</span>,nosuid,noexec
+
+<span class="c1"># Configura /run, que guarda algumas informações de execução.</span>
+mount -t tmpfs run /run -o <span class="nv">mode</span><span class="o">=</span><span class="m">0755</span>,nosuid,nodev
+
+<span class="c1"># Atribui nome ao PC</span>
+cat /etc/hostname &gt; /proc/sys/kernel/hostname
+
+<span class="c1"># Monta todos os sistemas de arquivos contidos em /etc/fstab</span>
+mount -a
+
+mount -o remount,rw /
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Não se esqueça de dar permissões de execução para <code>/etc/init.d/startup</code>.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Este script requer a criação de um diretório <code>/run</code>. Para que ele serve? Crie-o e copie ambos arquivos acima para seu sistema.</p>
+</div>
+<p>Agora vamos rodar de novo, desta vez com nosso novo sistema de inicialização configurado.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Modifique sua linha de comando do <em>QEmu</em> e retire a porção <code>init=/bin/sh</code>. Por padrão o kernel buscará o executável <code>/sbin/init</code>, que usará os arquivos que criamos para inicializar o sistema.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Se tudo deu certo você deverá ter um prompt de login. Logue como <em>root</em> e continue o roteiro.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Não se esqueça de usar <code>umount</code> para desmontar a pasta <code>raiz_linux</code>.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Crie um arquivo dentro de seu sistema. Você pode usar o editor <code>vi</code> ou o comando <code>touch</code> para criar um arquivo vazio. Se não deu certo revise se ocorreu tudo certo na execução do seu script <code>startup</code> rolando a tela para cima com <code>Shift+PageUp</code>.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Desligue seu sistema com <code>poweroff</code>. Ligue-o novamente e confira se o arquivo ainda está lá.</p>
+</div>
+<div class="admonition done">
+<p class="admonition-title">Pronto! Agora temos um sistema minimamente funcional e que persiste arquivos e configurações a cada boot!</p>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../14-exec/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              15 - Carregamento de programas
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../../labs/bomblab/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Bomb Lab
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.4ea5477f.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.0.0/js-yaml.min.js"></script>
+      
+        <script src="../../markdown-enhancer.js"></script>
+      
+    
+  </body>
+</html>
