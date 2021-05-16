@@ -1,0 +1,45 @@
+# Lab de Processos e Bibliotecas
+
+Nesse primeiro lab de Sistemas Operacionais iremos trabalhar com bibliotecas e processos para a criação de um programa similar ao `wget`. Nosso programa, chamado de  `web_downloader`, fará download de páginas web usando a biblioteca `libCurl`.
+
+
+## Restrições
+
+Este exercício serve como avaliação dos conceitos vistos na disciplina. Portanto, algumas restrições serão aplicadas aos código de vocês. Isso significa que algumas APIs de alto
+
+- todo trabalho com arquivos deverá ser feito usando as APIs POSIX vistas em aula;
+- seu programa deverá compilar sem warnings usando as opções `-Wall -Wno-unused-result -Og -g`
+
+## Avaliação
+
+O programa será avaliado usando uma rubrica que descreve as funcionalidades implementadas. Quanto maior o número de funcionalidades maior será a nota.
+
+### Conceito **I**
+
+- O programa não compila
+- O programa não implementa algum dos requisitos da rubrica  **D**.
+
+### Conceito **D**
+
+- O programa compila com warnings
+- O programa roda na linha de comando como abaixo, salvando o resultado como `exemplo_com_pagina.html` (ou seja, substituindo todas barras e pontos por `_`)
+
+`$> web_downloader http://exemplo.com/pagina.html`
+
+- 
+
+### Conceito **C**
+
+- O programa compila sem warnings.
+- O programa recebe uma flag `-f` seguida por
+
+`$> web_downloader -f `
+
+
+
+### Conceito **B**
+
+### Conceito **A**
+
+- Ao receber a flag `-r` o programa faz a análise de links (usando PCRE) nas páginas baixadas e coloca esses links na fila de páginas a baixar também.
+-
