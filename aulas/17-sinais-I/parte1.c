@@ -3,6 +3,7 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 #include <string.h>
+#include <signal.h>
 
 int main() {
     pid_t filho;
@@ -14,6 +15,10 @@ int main() {
     }
 
     int ws;
+
+    sleep(10);
+    kill(filho, SIGKILL);
+
     wait(&ws);
     printf("EXITED %d \n"
            "SIGNALED %d \n"
