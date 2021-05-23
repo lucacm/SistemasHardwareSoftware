@@ -1,4 +1,6 @@
 
+
+
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
@@ -7,14 +9,13 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
+        <link rel="canonical" href="https://insper.github.io/SistemasHardwareSoftware/aulas/15-linux-do-zero-II/">
+      
       
         <meta name="author" content="Igor Montagner">
       
-      
-        <link rel="canonical" href="https://insper.github.io/SistemasHardwareSoftware/aulas/15-linux-do-zero-II/">
-      
-      <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.3">
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.12">
     
     
       
@@ -22,24 +23,22 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.e35208c4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4dd2dd8d.min.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.6a5ad368.min.css">
+      
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
         
-          
-          
-          <meta name="theme-color" content="#795649">
-        
+        <meta name="theme-color" content="#795649">
       
     
     
     
       
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
     
     
@@ -56,12 +55,10 @@
     
     
     
-    
-    
     <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="brown" data-md-color-accent="amber">
   
     
-    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+      <script>matchMedia("(prefers-color-scheme: dark)").matches&&document.body.setAttribute("data-md-color-scheme","slate")</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -79,50 +76,46 @@
     </div>
     
       <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Sistemas Hardware-Software - 2021/1" class="md-header__button md-logo" aria-label="Sistemas Hardware-Software - 2021/1" data-md-component="logo">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://insper.github.io/SistemasHardwareSoftware/" title="Sistemas Hardware-Software - 2021/1" class="md-header-nav__button md-logo" aria-label="Sistemas Hardware-Software - 2021/1">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
     </a>
-    <label class="md-header__button md-icon" for="__drawer">
+    <label class="md-header-nav__button md-icon" for="__drawer">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
     </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
             Sistemas Hardware-Software - 2021/1
           </span>
-        </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
             
               15 - Linux do Zero II: processos de usuário e I/O
             
           </span>
         </div>
-      </div>
+      
     </div>
     
-    
-    
-      <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
       
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
     <div class="md-search__output">
@@ -139,12 +132,12 @@
 </div>
     
     
-      <div class="md-header__source">
+      <div class="md-header-nav__source">
         
-<a href="https://github.com/insper/sistemashardwaresoftware/" title="Go to repository" class="md-source" data-md-component="source">
+<a href="https://github.com/insper/sistemashardwaresoftware/" title="Go to repository" class="md-source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     sistemashardwaresoftware
@@ -157,6 +150,8 @@
     
     <div class="md-container" data-md-component="container">
       
+        
+      
       
         
       
@@ -164,19 +159,15 @@
         <div class="md-main__inner md-grid">
           
             
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    
-
-
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Sistemas Hardware-Software - 2021/1" class="md-nav__button md-logo" aria-label="Sistemas Hardware-Software - 2021/1" data-md-component="logo">
+    <a href="https://insper.github.io/SistemasHardwareSoftware/" title="Sistemas Hardware-Software - 2021/1" class="md-nav__button md-logo" aria-label="Sistemas Hardware-Software - 2021/1">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
     </a>
     Sistemas Hardware-Software - 2021/1
@@ -184,10 +175,10 @@
   
     <div class="md-nav__source">
       
-<a href="https://github.com/insper/sistemashardwaresoftware/" title="Go to repository" class="md-source" data-md-component="source">
+<a href="https://github.com/insper/sistemashardwaresoftware/" title="Go to repository" class="md-source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     sistemashardwaresoftware
@@ -201,15 +192,24 @@
       
       
 
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
-        Home
-      </a>
-    </li>
-  
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../sobre/" title="Burocracias" class="md-nav__link">
+      Burocracias
+    </a>
+  </li>
 
     
       
@@ -217,236 +217,217 @@
       
 
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../../sobre/" class="md-nav__link">
-        Burocracias
-      </a>
-    </li>
-  
 
-    
-      
-      
-      
 
-  
-  
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-  
-  
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
-      
-      <label class="md-nav__link" for="__nav_3">
+    <label class="md-nav__link" for="nav-3">
+      Aulas
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Aulas" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
         Aulas
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../01-inteiros/" title="01 - Inteiros na CPU" class="md-nav__link">
+      01 - Inteiros na CPU
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../02-ram/" title="02 - Representação de dados em RAM" class="md-nav__link">
+      02 - Representação de dados em RAM
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../03-arquitetura-x86/" title="03 - Arquitetura x86-64" class="md-nav__link">
+      03 - Arquitetura x86-64
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../04-funcoes-mov/" title="04 - Funções" class="md-nav__link">
+      04 -  Funções
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../05-condicionais/" title="05 - Condicionais" class="md-nav__link">
+      05 - Condicionais
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../06-condicionais-funcoes/" title="06 - Condicionais e funções" class="md-nav__link">
+      06 - Condicionais e funções
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../07-loops/" title="07 - Loops" class="md-nav__link">
+      07 - Loops
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../08-variaveis-locais/" title="08 - Variáveis locais" class="md-nav__link">
+      08 - Variáveis locais
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../09-arrays/" title="09 - Array em Assembly" class="md-nav__link">
+      09 - Array em Assembly
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../10-malloc/" title="10 - Alocação Dinâmica de Memória" class="md-nav__link">
+      10 - Alocação Dinâmica de Memória
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../11-tipos-de-dados/" title="11 - Tipos abstratos de dados" class="md-nav__link">
+      11 - Tipos abstratos de dados
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../12-linux-do-zero/" title="12 - Linux do Zero" class="md-nav__link">
+      12 - Linux do Zero
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../13-processos/" title="13 - Processos" class="md-nav__link">
+      13 - Processos
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../14-exec/" title="15 - Carregamento de programas" class="md-nav__link">
+      15 - Carregamento de programas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        15 - Linux do Zero II: processos de usuário e I/O
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Aulas" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          Aulas
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../01-inteiros/" class="md-nav__link">
-        01 - Inteiros na CPU
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../02-ram/" class="md-nav__link">
-        02 - Representação de dados em RAM
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../03-arquitetura-x86/" class="md-nav__link">
-        03 - Arquitetura x86-64
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../04-funcoes-mov/" class="md-nav__link">
-        04 -  Funções
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../05-condicionais/" class="md-nav__link">
-        05 - Condicionais
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../06-condicionais-funcoes/" class="md-nav__link">
-        06 - Condicionais e funções
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../07-loops/" class="md-nav__link">
-        07 - Loops
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../08-variaveis-locais/" class="md-nav__link">
-        08 - Variáveis locais
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../09-arrays/" class="md-nav__link">
-        09 - Array em Assembly
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../10-malloc/" class="md-nav__link">
-        10 - Alocação Dinâmica de Memória
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../11-tipos-de-dados/" class="md-nav__link">
-        11 - Tipos abstratos de dados
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../12-linux-do-zero/" class="md-nav__link">
-        12 - Linux do Zero
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../13-processos/" class="md-nav__link">
-        13 - Processos
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../14-exec/" class="md-nav__link">
-        15 - Carregamento de programas
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
     
-  
-  
-    <li class="md-nav__item md-nav__item--active">
+    <a href="./" title="15 - Linux do Zero II: processos de usuário e I/O" class="md-nav__link md-nav__link--active">
+      15 - Linux do Zero II: processos de usuário e I/O
+    </a>
+    
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          15 - Linux do Zero II: processos de usuário e I/O
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        15 - Linux do Zero II: processos de usuário e I/O
-      </a>
-      
-        
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
   
   
     
@@ -456,7 +437,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#a-biblioteca-padrao-libc" class="md-nav__link">
@@ -496,141 +477,147 @@
     </ul>
   
 </nav>
-      
-    </li>
-  
+    
+  </li>
 
+        
           
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../16-entrada-saida/" class="md-nav__link">
-        16 - Entrada/Saída
-      </a>
-    </li>
-  
+          
+          
 
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../17-sinais-I/" class="md-nav__link">
-        17 - Enviando sinais
-      </a>
-    </li>
-  
 
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../18-sinais-II/" class="md-nav__link">
-        18 - Capturando sinais
-      </a>
-    </li>
-  
+  <li class="md-nav__item">
+    <a href="../16-entrada-saida/" title="16 - Entrada/Saída" class="md-nav__link">
+      16 - Entrada/Saída
+    </a>
+  </li>
 
+        
           
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../19-threads-I/" class="md-nav__link">
-        19 - Concorrência e Threads
-      </a>
-    </li>
-  
+          
+          
 
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../20-sincronizacao/" class="md-nav__link">
-        20 - Sincronização com Mutex
-      </a>
-    </li>
-  
 
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../21-semaforos/" class="md-nav__link">
-        21 - Semáforos
-      </a>
-    </li>
-  
+  <li class="md-nav__item">
+    <a href="../17-sinais-I/" title="17 - Enviando sinais" class="md-nav__link">
+      17 - Enviando sinais
+    </a>
+  </li>
 
+        
           
-        </ul>
-      </nav>
-    </li>
-  
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../18-sinais-II/" title="18 - Capturando sinais" class="md-nav__link">
+      18 - Capturando sinais
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../19-threads-I/" title="19 - Concorrência e Threads" class="md-nav__link">
+      19 - Concorrência e Threads
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../20-sincronizacao/" title="20 - Sincronização com Mutex" class="md-nav__link">
+      20 - Sincronização com Mutex
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../21-semaforos/" title="21 - Semáforos" class="md-nav__link">
+      21 - Semáforos
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
 
     
       
       
       
 
-  
-  
-  
+
+  <li class="md-nav__item md-nav__item--nested">
     
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
-      
-      <label class="md-nav__link" for="__nav_4">
-        Labs
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Labs
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Labs" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
         <span class="md-nav__icon md-icon"></span>
+        Labs
       </label>
-      <nav class="md-nav" aria-label="Labs" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
-          <span class="md-nav__icon md-icon"></span>
-          Labs
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
           
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../labs/bomblab/" class="md-nav__link">
-        Bomb Lab
-      </a>
-    </li>
-  
+          
+          
 
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../labs/processos/" class="md-nav__link">
-        Lab de Processos e Bibliotecas
-      </a>
-    </li>
-  
 
+  <li class="md-nav__item">
+    <a href="../../labs/bomblab/" title="Bomb Lab" class="md-nav__link">
+      Bomb Lab
+    </a>
+  </li>
+
+        
           
-        </ul>
-      </nav>
-    </li>
-  
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../labs/processos/" title="Lab de Processos e Bibliotecas" class="md-nav__link">
+      Lab de Processos e Bibliotecas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../labs/threads/" title="Lab de Threads" class="md-nav__link">
+      Lab de Threads
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
 
     
   </ul>
@@ -640,13 +627,11 @@
               </div>
             
             
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
   
   
     
@@ -656,7 +641,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#a-biblioteca-padrao-libc" class="md-nav__link">
@@ -701,13 +686,16 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
+          <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
                   <a href="https://github.com/insper/sistemashardwaresoftware/edit/master/docs/aulas/15-linux-do-zero-II/index.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
+                
+                
+                  
                 
                 
                 <h1 id="15-linux-do-zero-ii-processos-de-usuario-e-io">15 - Linux do Zero II: processos de usuário e I/O<a class="headerlink" href="#15-linux-do-zero-ii-processos-de-usuario-e-io" title="Permanent link">&para;</a></h1>
@@ -946,44 +934,45 @@ mount -o remount,rw /
             </article>
           </div>
         </div>
-        
       </main>
       
         
 <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        <a href="../14-exec/" class="md-footer__link md-footer__link--prev" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              15 - Carregamento de programas
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../14-exec/" title="15 - Carregamento de programas" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
-          </div>
-        </a>
-      
-      
-        <a href="../16-entrada-saida/" class="md-footer__link md-footer__link--next" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              16 - Entrada/Saída
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                15 - Carregamento de programas
+              </div>
             </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
+          </a>
+        
+        
+          <a href="../16-entrada-saida/" title="16 - Entrada/Saída" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                16 - Entrada/Saída
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -993,7 +982,6 @@ mount -o remount,rw /
         <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
           Material for MkDocs
         </a>
-        
       </div>
       
     </div>
@@ -1001,13 +989,19 @@ mount -o remount,rw /
 </footer>
       
     </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
-    </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
     
-    
-      <script src="../../assets/javascripts/bundle.4ea5477f.min.js"></script>
+      <script src="../../assets/javascripts/vendor.3636a4ec.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e9fe3281.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
       
