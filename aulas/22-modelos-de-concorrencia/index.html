@@ -11,14 +11,14 @@
         <meta name="author" content="Igor Montagner">
       
       
-        <link rel="canonical" href="https://insper.github.io/SistemasHardwareSoftware/aulas/02-ram/">
+        <link rel="canonical" href="https://insper.github.io/SistemasHardwareSoftware/aulas/22-modelos-de-concorrencia/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.3">
     
     
       
-        <title>02 - Representação de dados em RAM - Sistemas Hardware-Software - 2021/1</title>
+        <title>22 - Modelos de concorrência - Sistemas Hardware-Software - 2021/1</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#02-representacao-de-dados-em-ram" class="md-skip">
+        <a href="#22-modelos-de-concorrencia" class="md-skip">
           Skip to content
         </a>
       
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              02 - Representação de dados em RAM
+              22 - Modelos de concorrência
             
           </span>
         </div>
@@ -268,65 +268,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          02 - Representação de dados em RAM
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../02-ram/" class="md-nav__link">
         02 - Representação de dados em RAM
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#experimentos" class="md-nav__link">
-    Experimentos
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#representacao-de-struct-em-ram" class="md-nav__link">
-    Representação de struct em RAM
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#examinando-a-execucao-de-programas-usando-gdb" class="md-nav__link">
-    Examinando a execução de programas usando gdb
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -562,11 +508,21 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../22-modelos-de-concorrencia/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         22 - Modelos de concorrência
       </a>
+      
     </li>
   
 
@@ -662,35 +618,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#experimentos" class="md-nav__link">
-    Experimentos
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#representacao-de-struct-em-ram" class="md-nav__link">
-    Representação de struct em RAM
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#examinando-a-execucao-de-programas-usando-gdb" class="md-nav__link">
-    Examinando a execução de programas usando gdb
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -701,143 +628,13 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/insper/sistemashardwaresoftware/edit/master/docs/aulas/02-ram/index.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/insper/sistemashardwaresoftware/edit/master/docs/aulas/22-modelos-de-concorrencia/index.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="02-representacao-de-dados-em-ram">02 - Representação de dados em RAM<a class="headerlink" href="#02-representacao-de-dados-em-ram" title="Permanent link">&para;</a></h1>
-<h2 id="experimentos">Experimentos<a class="headerlink" href="#experimentos" title="Permanent link">&para;</a></h2>
-<p>Vamos trabalhar com os arquivos <code>experimento0-4.c</code>. Compile e execute cada um deles e coloque suas saídas abaixo. Comente os resultados comparando os valores das constantes no código em <em>C</em> e a saída dos programas.</p>
-<div class="admonition question medium">
-<p class="admonition-title">Question</p>
-<p>Examine o código <em>C</em> do arquivo <em>experimento0.c</em> e compare com o resultado de sua execução. Há algo estranho? Se sim, escreva abaixo algumas hipóteses para o comportamento do programa.</p>
-</div>
-<div class="admonition question medium">
-<p class="admonition-title">Question</p>
-<p>Examine o código <em>C</em> do arquivo <em>experimento1.c</em> e compare com o resultado de sua execução. Há algo estranho? Se sim, escreva abaixo algumas hipóteses para o comportamento do programa.</p>
-</div>
-<div class="admonition question medium">
-<p class="admonition-title">Question</p>
-<p>Examine o código <em>C</em> do arquivo <em>experimento2.c</em> e compare com o resultado de sua execução. Há algo estranho? Se sim, escreva abaixo algumas hipóteses para o comportamento do programa.</p>
-</div>
-<div class="admonition question medium">
-<p class="admonition-title">Question</p>
-<p>Examine o código <em>C</em> do arquivo <em>experimento3.c</em> e compare com o resultado de sua execução. Há algo estranho? Se sim, escreva abaixo algumas hipóteses para o comportamento do programa.</p>
-</div>
-<div class="admonition question medium">
-<p class="admonition-title">Question</p>
-<p>Examine o código <em>C</em> do arquivo <em>experimento4.c</em> e compare com o resultado de sua execução. Há algo estranho? Se sim, escreva abaixo algumas hipóteses para o comportamento do programa.</p>
-</div>
-<h2 id="representacao-de-struct-em-ram">Representação de <code>struct</code> em <em>RAM</em><a class="headerlink" href="#representacao-de-struct-em-ram" title="Permanent link">&para;</a></h2>
-<p>A utilização de <code>struct</code> junta tudo que já vimos sobre representação de todos os tipos de dados na memória. Não se esqueça de levar em conta as questões de alinhamento mostradas na parte expositiva da aula.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Você <strong>não</strong> deverá abrir o código de <code>parte1.c</code>. Ele está no repositório para você poder conferir suas respostas.</p>
-</div>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p>Compile e execute <em>parte1.c</em>.</p>
-</div>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p>Os endereços mostrados na saída de <code>parte1</code> pertencem a um só struct declarado como <code>struct player one</code>. Quais são os tamanhos de cada campo?</p>
-<p><strong>Dica</strong>: pode não ser possível identificar <em>exatamente</em> o tamanho de cada campo, mas é esperado que você identifique ao menos o tamanho <strong>máximo</strong> de cada um.</p>
-</div>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p>A segunda parte da saída de <code>parte1</code> mostra os endereços de cada campo do struct. Note que <code>&amp;one</code> e <code>&amp;one.icon</code> são iguais. Você consegue explicar por que? Se não, volte na aula expositiva e reveja a parte sobre <code>struct</code> e alinhamento de memória.</p>
-</div>
-<div class="admonition question medium">
-<p class="admonition-title">Question</p>
-<p>Baseado nas respostas acima, declare abaixo o <code>struct</code>. Escreva-o da mesma maneira que usaria em um programa em <em>C</em>.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Confira suas respostas com <em>parte1.c</em>. </p>
-</div>
-<h2 id="examinando-a-execucao-de-programas-usando-gdb">Examinando a execução de programas usando <code>gdb</code><a class="headerlink" href="#examinando-a-execucao-de-programas-usando-gdb" title="Permanent link">&para;</a></h2>
-<p>Podemos examinar um programa durante sua execução usando o <em>gdb</em>. Podemos parar em qualquer instrução do programa, examinar conteúdo de registradores e da memória e listar todos os símbolos disponíveis (que podem ser funções ou variáveis globais).</p>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p>Para compilar um programa com suporte a <em>debugging</em> usamos a flag <code>-g</code> do <code>gcc</code></p>
-<blockquote>
-<p><code>$&gt; gcc -g -Wall -pedantic exemplo1.c</code></p>
-</blockquote>
-</div>
-<p>Siga os passos abaixo para para carregar um programa usando o <em>gdb</em>.</p>
-<ol>
-<li>
-<p>Lance o <code>gdb</code> e passe para ele seu programa:</p>
-<blockquote>
-<p><code>$&gt; gdb ./exemplo1</code></p>
-</blockquote>
-</li>
-<li>
-<p>Isto nos colocará em um prompt esperando comandos. Para rodar o programa até o fim execute</p>
-<blockquote>
-<p><code>(gdb) run</code></p>
-</blockquote>
-</li>
-<li>
-<p>Para sair,</p>
-<blockquote>
-<p><code>(gdb) quit</code></p>
-</blockquote>
-</li>
-</ol>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>O <em>gdb</em> é uma ferramenta poderosa que possui muitas opções. Sua documentação está online e pode ser vista em <a href="https://sourceware.org/gdb/current/onlinedocs/gdb/index.html#Top">https://sourceware.org/gdb/current/onlinedocs/gdb/index.html#Top</a>.</p>
-</div>
-<p>Nesta primeira parte iremos abrir o arquivo <em>parte2.c</em> e olhar seu conteúdo. Também executaremos o programa compilado <em>parte2</em>.</p>
-<div class="admonition question">
-<p class="admonition-title">Question</p>
-<p>Abra o código <em>parte2.c</em> e liste os nomes das variáveis globais declaradas e seus tamanhos. Anote também as funções declaradas.</p>
-</div>
-<div class="admonition question">
-<p class="admonition-title">Question</p>
-<p>O comando <em>info</em> mostra informações que podem ser obtidas a partir de um executável. Execute-o e veja o que acontece.</p>
-</div>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p>Use <code>info</code> para mostrar as funções e variáveis globais que existem em <code>parte2</code>.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Muitos dos nomes são estranhos. Eles fazem parte do padrão de arquivos executáveis <em>ELF</em>, que contém informações específicas do sistema operacional usado. Você não precisa se preocupar com estes nomes.</p>
-</div>
-<div class="admonition question">
-<p class="admonition-title">Question</p>
-<p>Qual é o significado da primeira coluna do comando <em>info variables</em>?</p>
-<p><strong>Dica</strong>: o valor está em hexadecimal, que usamos na expositiva para mostrar ponteiros.</p>
-</div>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p>Podemos usar o comando <em>print</em> para mostrar o valor inicial das variáveis globais identificadas. Mostre o valor inicial de <code>global_var</code> usando este comando e compare com o visto no arquivo <em>parte2.c</em>.</p>
-<p><strong>Dicas:</strong></p>
-<ul>
-<li>Pode não funcionar de primeira. O quê a mensagem de erro diz?</li>
-<li>A sintaxe de conversão de tipos de <em>C</em> (<em>casting</em>) pode ser útil aqui.</li>
-</ul>
-</div>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p>Podemos usar o <em>gdb</em> também para <strong>examinar a memória</strong> de um executável. Acesse esta <a href="https://sourceware.org/gdb/current/onlinedocs/gdb/Memory.html">página da documentação</a>, entenda como usar o comando <code>x</code> e escreva abaixo qual o comando usado para mostrar o conteúdo do segundo item do vetor <code>global_array</code>. Em seguida, teste-o e verifique que ele funcionou corretamente.</p>
-<p><strong>Dicas</strong>:</p>
-<ol>
-<li>volte nos exercícios anteriores e encontre o endereço do início do vetor</li>
-<li>calcule o endereço do segundo elemento manualmente e passe para o comando <code>x</code></li>
-<li>não se esqueça de buscar na memória o tamanho correto do elemento</li>
-</ol>
-</div>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p><code>global_array</code> tem tipo <code>short</code>. Ou seja, é formado por dois bytes. Mostre agora o conteúdo de cada um deles. Ou seja, você deverá dar dois comandos para examinar a memória. Explique como converter esses dois bytes para o valor mostrado no exercício anterior.</p>
-</div>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p>Use agora o comando <code>x</code> para exibir <code>global_str</code> como uma <em>string</em>. Escreva o comando abaixo.</p>
-</div>
+                <h1 id="22-modelos-de-concorrencia">22 - Modelos de concorrência<a class="headerlink" href="#22-modelos-de-concorrencia" title="Permanent link">&para;</a></h1>
+<p>A aula de hoje não tem atividades práticas individuais.</p>
                 
               
               
@@ -856,7 +653,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../01-inteiros/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../21-semaforos/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -865,19 +662,19 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              01 - Inteiros na CPU
+              21 - Semáforos
             </div>
           </div>
         </a>
       
       
-        <a href="../03-arquitetura-x86/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../../labs/bomblab/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              03 - Arquitetura x86-64
+              Bomb Lab
             </div>
           </div>
           <div class="md-footer__button md-icon">
