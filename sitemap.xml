@@ -2,22 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://insper.github.io/SistemasHardwareSoftware/</loc>
-         <lastmod>2021-08-27</lastmod>
+         <lastmod>2021-08-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://insper.github.io/SistemasHardwareSoftware/sobre/</loc>
-         <lastmod>2021-08-27</lastmod>
+         <lastmod>2021-08-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://insper.github.io/SistemasHardwareSoftware/aulas/01-inteiros/</loc>
-         <lastmod>2021-08-27</lastmod>
+         <lastmod>2021-08-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://insper.github.io/SistemasHardwareSoftware/aulas/02-ram/</loc>
-         <lastmod>2021-08-27</lastmod>
+         <lastmod>2021-08-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://insper.github.io/SistemasHardwareSoftware/aulas/03-arquitetura-x86/</loc>
+         <lastmod>2021-08-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

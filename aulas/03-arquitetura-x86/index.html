@@ -11,14 +11,14 @@
         <meta name="author" content="Igor Montagner, Maciel Calebe Vidal">
       
       
-        <link rel="canonical" href="https://insper.github.io/SistemasHardwareSoftware/aulas/02-ram/">
+        <link rel="canonical" href="https://insper.github.io/SistemasHardwareSoftware/aulas/03-arquitetura-x86/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
     
     
       
-        <title>02 - Representação de dados em RAM - Sistemas Hardware-Software - 2021/2</title>
+        <title>03 - Arquitetura x86-64 - Sistemas Hardware-Software - 2021/2</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#02-representacao-de-dados-em-ram" class="md-skip">
+        <a href="#03-arquitetura-x86-64" class="md-skip">
           Skip to content
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              02 - Representação de dados em RAM
+              03 - Arquitetura x86-64
             
           </span>
         </div>
@@ -274,6 +274,18 @@
             
   
   
+  
+    <li class="md-nav__item">
+      <a href="../02-ram/" class="md-nav__link">
+        02 - Representação de dados em RAM
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
     
   
   
@@ -286,12 +298,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          02 - Representação de dados em RAM
+          03 - Arquitetura x86-64
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        02 - Representação de dados em RAM
+        03 - Arquitetura x86-64
       </a>
       
         
@@ -309,22 +321,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#experimentos" class="md-nav__link">
-    Experimentos
+  <a href="#parando-e-continuando-a-execucao-de-um-programa" class="md-nav__link">
+    Parando e continuando a execução de um programa.
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#representacao-de-struct-em-ram" class="md-nav__link">
-    Representação de struct em RAM
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#examinando-a-execucao-de-programas-usando-gdb" class="md-nav__link">
-    Examinando a execução de programas usando gdb
+  <a href="#enderecamento-relativo-e-variaveis-globais" class="md-nav__link">
+    Endereçamento relativo e variáveis globais
   </a>
   
 </li>
@@ -333,18 +338,6 @@
   
 </nav>
       
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../03-arquitetura-x86/" class="md-nav__link">
-        03 - Arquitetura x86-64
-      </a>
     </li>
   
 
@@ -381,22 +374,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#experimentos" class="md-nav__link">
-    Experimentos
+  <a href="#parando-e-continuando-a-execucao-de-um-programa" class="md-nav__link">
+    Parando e continuando a execução de um programa.
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#representacao-de-struct-em-ram" class="md-nav__link">
-    Representação de struct em RAM
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#examinando-a-execucao-de-programas-usando-gdb" class="md-nav__link">
-    Examinando a execução de programas usando gdb
+  <a href="#enderecamento-relativo-e-variaveis-globais" class="md-nav__link">
+    Endereçamento relativo e variáveis globais
   </a>
   
 </li>
@@ -413,142 +399,119 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/insper/sistemashardwaresoftware/edit/master/docs/aulas/02-ram/index.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/insper/sistemashardwaresoftware/edit/master/docs/aulas/03-arquitetura-x86/index.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="02-representacao-de-dados-em-ram">02 - Representação de dados em RAM<a class="headerlink" href="#02-representacao-de-dados-em-ram" title="Permanent link">&para;</a></h1>
-<h2 id="experimentos">Experimentos<a class="headerlink" href="#experimentos" title="Permanent link">&para;</a></h2>
-<p>Vamos trabalhar com os arquivos <code>experimento0-4.c</code>. Compile e execute cada um deles e coloque suas saídas abaixo. Comente os resultados comparando os valores das constantes no código em <em>C</em> e a saída dos programas.</p>
+                <h1 id="03-arquitetura-x86-64">03 - Arquitetura x86-64<a class="headerlink" href="#03-arquitetura-x86-64" title="Permanent link">&para;</a></h1>
+<p>No handout passado usamos o <em>gdb</em> para listar variáveis globais, nomes de funções e examinar endereços de memória. Neste handout vamos começar a usar o <em>gdb</em> também para examinar nossos programas <em>durante sua execução</em>.</p>
+<h2 id="parando-e-continuando-a-execucao-de-um-programa">Parando e continuando a execução de um programa.<a class="headerlink" href="#parando-e-continuando-a-execucao-de-um-programa" title="Permanent link">&para;</a></h2>
 <div class="admonition question medium">
 <p class="admonition-title">Question</p>
-<p>Examine o código <em>C</em> do arquivo <em>experimento0.c</em> e compare com o resultado de sua execução. Há algo estranho? Se sim, escreva abaixo algumas hipóteses para o comportamento do programa.</p>
-</div>
-<div class="admonition question medium">
-<p class="admonition-title">Question</p>
-<p>Examine o código <em>C</em> do arquivo <em>experimento1.c</em> e compare com o resultado de sua execução. Há algo estranho? Se sim, escreva abaixo algumas hipóteses para o comportamento do programa.</p>
-</div>
-<div class="admonition question medium">
-<p class="admonition-title">Question</p>
-<p>Examine o código <em>C</em> do arquivo <em>experimento2.c</em> e compare com o resultado de sua execução. Há algo estranho? Se sim, escreva abaixo algumas hipóteses para o comportamento do programa.</p>
-</div>
-<div class="admonition question medium">
-<p class="admonition-title">Question</p>
-<p>Examine o código <em>C</em> do arquivo <em>experimento3.c</em> e compare com o resultado de sua execução. Há algo estranho? Se sim, escreva abaixo algumas hipóteses para o comportamento do programa.</p>
-</div>
-<div class="admonition question medium">
-<p class="admonition-title">Question</p>
-<p>Examine o código <em>C</em> do arquivo <em>experimento4.c</em> e compare com o resultado de sua execução. Há algo estranho? Se sim, escreva abaixo algumas hipóteses para o comportamento do programa.</p>
-</div>
-<h2 id="representacao-de-struct-em-ram">Representação de <code>struct</code> em <em>RAM</em><a class="headerlink" href="#representacao-de-struct-em-ram" title="Permanent link">&para;</a></h2>
-<p>A utilização de <code>struct</code> junta tudo que já vimos sobre representação de todos os tipos de dados na memória. Não se esqueça de levar em conta as questões de alinhamento mostradas na parte expositiva da aula.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Você <strong>não</strong> deverá abrir o código de <code>parte1.c</code>. Ele está no repositório para você poder conferir suas respostas.</p>
+<p>Compile <em>funcao1.c</em> usando as flags da disciplina (<code>-Og -g -Wall -std=c99</code>). Abra o executável com o <em>gdb</em> e liste suas funções e suas variáveis globais. <strong>Não rode o programa ainda!</strong> Anote abaixo seus endereços e nomes.</p>
 </div>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p>Compile e execute <em>parte1.c</em>.</p>
+<p>O comando <code>disas</code> é usado para mostrar as instruções de máquina de uma função. Use-o para ver o código de máquina da função <code>funcao1</code>. Liste abaixo quais registradores foram usados nesta função e qual o tamanho dos dados guardados neles.</p>
 </div>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p>Os endereços mostrados na saída de <code>parte1</code> pertencem a um só struct declarado como <code>struct player one</code>. Quais são os tamanhos de cada campo?</p>
-<p><strong>Dica</strong>: pode não ser possível identificar <em>exatamente</em> o tamanho de cada campo, mas é esperado que você identifique ao menos o tamanho <strong>máximo</strong> de cada um.</p>
+<p>Com base nos tamanhos identificados, você consegue associar os registradores acima com as variáveis no código de <code>funcao1</code>?</p>
 </div>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p>A segunda parte da saída de <code>parte1</code> mostra os endereços de cada campo do struct. Note que <code>&amp;one</code> e <code>&amp;one.icon</code> são iguais. Você consegue explicar por que? Se não, volte na aula expositiva e reveja a parte sobre <code>struct</code> e alinhamento de memória.</p>
-</div>
-<div class="admonition question medium">
-<p class="admonition-title">Question</p>
-<p>Baseado nas respostas acima, declare abaixo o <code>struct</code>. Escreva-o da mesma maneira que usaria em um programa em <em>C</em>.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Confira suas respostas com <em>parte1.c</em>. </p>
-</div>
-<h2 id="examinando-a-execucao-de-programas-usando-gdb">Examinando a execução de programas usando <code>gdb</code><a class="headerlink" href="#examinando-a-execucao-de-programas-usando-gdb" title="Permanent link">&para;</a></h2>
-<p>Podemos examinar um programa durante sua execução usando o <em>gdb</em>. Podemos parar em qualquer instrução do programa, examinar conteúdo de registradores e da memória e listar todos os símbolos disponíveis (que podem ser funções ou variáveis globais).</p>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p>Para compilar um programa com suporte a <em>debugging</em> usamos a flag <code>-g</code> do <code>gcc</code></p>
-<blockquote>
-<p><code>$&gt; gcc -g -Wall -pedantic exemplo1.c</code></p>
-</blockquote>
-</div>
-<p>Siga os passos abaixo para para carregar um programa usando o <em>gdb</em>.</p>
-<ol>
-<li>
-<p>Lance o <code>gdb</code> e passe para ele seu programa:</p>
-<blockquote>
-<p><code>$&gt; gdb ./exemplo1</code></p>
-</blockquote>
-</li>
-<li>
-<p>Isto nos colocará em um prompt esperando comandos. Para rodar o programa até o fim execute</p>
-<blockquote>
-<p><code>(gdb) run</code></p>
-</blockquote>
-</li>
-<li>
-<p>Para sair,</p>
-<blockquote>
-<p><code>(gdb) quit</code></p>
-</blockquote>
-</li>
-</ol>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>O <em>gdb</em> é uma ferramenta poderosa que possui muitas opções. Sua documentação está online e pode ser vista em <a href="https://sourceware.org/gdb/current/onlinedocs/gdb/index.html#Top">https://sourceware.org/gdb/current/onlinedocs/gdb/index.html#Top</a>.</p>
-</div>
-<p>Nesta primeira parte iremos abrir o arquivo <em>parte2.c</em> e olhar seu conteúdo. Também executaremos o programa compilado <em>parte2</em>.</p>
-<div class="admonition question">
-<p class="admonition-title">Question</p>
-<p>Abra o código <em>parte2.c</em> e liste os nomes das variáveis globais declaradas e seus tamanhos. Anote também as funções declaradas.</p>
-</div>
-<div class="admonition question">
-<p class="admonition-title">Question</p>
-<p>O comando <em>info</em> mostra informações que podem ser obtidas a partir de um executável. Execute-o e veja o que acontece.</p>
+<p>Use o comando <code>break funcao1</code> para parar a execução do programa quando a função <code>funcao1</code> começar a executar. Execute o programa usando <code>run</code>. O quê ocorre?</p>
 </div>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p>Use <code>info</code> para mostrar as funções e variáveis globais que existem em <code>parte2</code>.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Muitos dos nomes são estranhos. Eles fazem parte do padrão de arquivos executáveis <em>ELF</em>, que contém informações específicas do sistema operacional usado. Você não precisa se preocupar com estes nomes.</p>
-</div>
-<div class="admonition question">
-<p class="admonition-title">Question</p>
-<p>Qual é o significado da primeira coluna do comando <em>info variables</em>?</p>
-<p><strong>Dica</strong>: o valor está em hexadecimal, que usamos na expositiva para mostrar ponteiros.</p>
+<p>Podemos usar o comando <code>info registers edi</code> para ver o conteúdo atual do registrador <code>%edi</code>. Qual é este valor? Verifique quais argumentos são passados para <code>funcao1</code> no código <em>C</em> e, com estas informações em mãos, verifique sua resposta da Tarefa 2 e escreva abaixo suas novas conclusões.</p>
 </div>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p>Podemos usar o comando <em>print</em> para mostrar o valor inicial das variáveis globais identificadas. Mostre o valor inicial de <code>global_var</code> usando este comando e compare com o visto no arquivo <em>parte2.c</em>.</p>
-<p><strong>Dicas:</strong></p>
-<ul>
-<li>Pode não funcionar de primeira. O quê a mensagem de erro diz?</li>
-<li>A sintaxe de conversão de tipos de <em>C</em> (<em>casting</em>) pode ser útil aqui.</li>
-</ul>
-</div>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p>Podemos usar o <em>gdb</em> também para <strong>examinar a memória</strong> de um executável. Acesse esta <a href="https://sourceware.org/gdb/current/onlinedocs/gdb/Memory.html">página da documentação</a>, entenda como usar o comando <code>x</code> e escreva abaixo qual o comando usado para mostrar o conteúdo do segundo item do vetor <code>global_array</code>. Em seguida, teste-o e verifique que ele funcionou corretamente.</p>
+<p>O comando <code>stepi</code> executa exatamente uma instrução de máquina. Use-o uma vez e execute novamente <code>disas funcao1</code>. O que aconteceu? É possível saber em qual instrução o programa está parado?</p>
 <p><strong>Dicas</strong>:</p>
 <ol>
-<li>volte nos exercícios anteriores e encontre o endereço do início do vetor</li>
-<li>calcule o endereço do segundo elemento manualmente e passe para o comando <code>x</code></li>
-<li>não se esqueça de buscar na memória o tamanho correto do elemento</li>
+<li>use <code>disas</code> de novo</li>
+<li>verifique novamente o conteúdo de <code>%edi</code></li>
 </ol>
 </div>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p><code>global_array</code> tem tipo <code>short</code>. Ou seja, é formado por dois bytes. Mostre agora o conteúdo de cada um deles. Ou seja, você deverá dar dois comandos para examinar a memória. Explique como converter esses dois bytes para o valor mostrado no exercício anterior.</p>
+<p>Cheque novamente o valor de <code>%edi</code>. Este valor condiz com a instrução executada? O que ela faz, exatamente?</p>
+</div>
+<div class="admonition question short">
+<p class="admonition-title">Question</p>
+<p>Use <code>stepi</code> para parar logo antes do retorno da função. Verifique o conteúdo do registrador <code>%eax</code> e compare-o com os prints feitos pelo program. Você consegue dizer seu uso?</p>
 </div>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p>Use agora o comando <code>x</code> para exibir <code>global_str</code> como uma <em>string</em>. Escreva o comando abaixo.</p>
+<p>Vamos agora analisar o registrador <code>%rsi</code>. Toda vez que um registrador aparece entre <code>( )</code> estamos fazendo um acesso a memória. Ao mostrar seu conteúdo usando <code>info registers rsi</code> recebemos o endereço de memória que contém o dado que queremos acessar.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Use o comando <code>x</code> para mostrar, em decimal, o <code>int</code> que está armazenado no endereço descoberto no exercício anterior. Confira seu resultado com o código.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Execute o comando <code>continue</code> para continuar rodando o programa. Ele irá rodar até que o próximo <em>breakpoint</em> seja alcançado ou até que o programa termine.</p>
+</div>
+<h2 id="enderecamento-relativo-e-variaveis-globais">Endereçamento relativo e variáveis globais<a class="headerlink" href="#enderecamento-relativo-e-variaveis-globais" title="Permanent link">&para;</a></h2>
+<p>Na parte anterior analisamos o código Assembly de nossa primeira função e vimos como</p>
+<ul>
+<li>mostrar o código fonte de uma função usando <code>disas</code></li>
+<li>mostrar o conteúdo de um registrador usando <code>info registers</code></li>
+<li>executar exatamente uma instrução usando <code>stepi</code></li>
+</ul>
+<p>Também vimos que ao colocar um registrador entre <code>( )</code> estamos fazendo um acesso a memória. Esta operação é equivalente a desreferenciar um ponteiro usando <code>*p</code>. Neste roteiro iremos adicionar um detalhe importante: podemos fazer contas com endereços usando esta notação. Nos exemplo abaixo nos referimos a memória como um grande vetor de bytes <code>unsigned char M[]</code>. Ou seja, ao acessar <code>M[%rax]</code>, por exemplo, estamos acessando o lugar na memória cujo endereço está escrito em <code>%rax</code>.</p>
+<ol>
+<li><code>10(%rax)</code>: acessa a memória <code>M[%rax + 10]</code>.</li>
+<li><code>(%rax, %rdi, 4)</code>: acessa a memória <code>M[%rax + 4 * % rdi]</code>. Note que isto se parece com aritmética de ponteiros cujo tipo apontado seja inteiro, pois os endereços pulam de 4 em 4 bytes.</li>
+</ol>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Saia e abra o <em>gdb</em> novamente. Mostre o código de máquina da função <code>funcao2</code> e coloque um breakpoint em sua primeira instrução.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Execute agora o programa. A execução deve ter parado no início de <code>funcao2</code>. Rode <code>disas funcao2</code>.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Você consegue identificar acessos a memória em <code>funcao2</code>? Quais são de leitura e quais são de escrita? Qual o tamanho dos dados lidos/escritos?</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Qual o significado do registrador <code>%rip</code>? Se não se lembrar reveja os slides.</p>
+</div>
+<p>O tipo de acesso a memória que estamos realizando se chama <code>rip relative addressing</code>. Este tipo de acesso é reservado para variáveis globais e dados somente leitura. Estes dados tem uma característica especial: eles são copiados para a memória seguindo o mesmo layout do arquivo executável. Ou seja, as posições <em>relativas</em> entre o código e os dados globais são fixas.</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Anote abaixo o endeço das funções <code>MOV</code> que utilizam este acesso. Baseado nos exemplos acima, descubra o endereço das variáveis acessadas.</p>
+</div>
+<details class="details"><summary>Desenho de acesso a memória usando <code>%rip</code></summary><p>A figura abaixo ilustra como funciona o endereçamento usando o registrador <code>%rip</code>. Note que os deslocamentos são diferentes pois o endereço da instrução atual é diferente. Porém, o resultado final do endereço calculado em ambas instruções é o mesmo, indicando que ambas se referem ao mesmo local na memória.</p>
+<p><img alt="" src="pilha-rip.png" /></p>
+</details>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Confira se o valor identificado na questão anterior é o mesmo mostrado a direita das instruções <code>MOV</code> na saída do <code>disas</code>. O <em>gdb</em> já calcula este endereço para facilitar nossa vida, mas é interessante calcular isto manualmente uma vez para entender melhor o processo.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Use o comando <code>continue</code> para continuar o programa. Você deve estar agora na segunda execução de <code>funcao2</code>. Use o comando <code>x</code> para mostrar o valor armazenado na memória calculada acima. Lendo o código do programa, você consegue dizer qual variável é armazenada neste endereço? O valor atual é o esperado para a segunda execução de <code>funcao2</code>?</p>
+</div>
+<p>Além de poder mostrar valores na memória podemos <strong>escrever</strong> valores também. A sintaxe usada é a seguinte:</p>
+<blockquote>
+<p><code>set *( (tipo *) 0x.....) = valor</code></p>
+</blockquote>
+<p>onde devemos substituir <code>tipo</code> por um tipo básico de <em>C</em>, <code>0x...</code> pelo endereço desejado e <code>valor</code> pelo valor que queremos escrever. Note que o que estamos fazendo é um <em>cast</em> do endereço <code>0x....</code> para um ponteiro de <code>tipo</code> e depois estamos acessando o valor apontado usando <code>*</code>!</p>
+<div class="admonition question short">
+<p class="admonition-title">Question</p>
+<p>Escreva o valor <code>-10</code> na memória da variável global usada em <code>funcao2</code>. Rode o programa até o fim. O resultado foi o esperado? Escreva abaixo os comandos utilizados.</p>
+</div>
+<div class="admonition bug">
+<p class="admonition-title">Desafio</p>
+<p>Localize na função <code>main</code> as chamadas ao comando <code>printf</code>. Encontre então o endereço das strings de formatação e use o comando <code>x</code> para mostrá-las no gdb. Escreva os comandos usados abaixo.</p>
 </div>
                 
               
@@ -569,7 +532,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../01-inteiros/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 01 - Inteiros na CPU" rel="prev">
+        <a href="../02-ram/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 02 - Representação de dados em RAM" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -578,26 +541,11 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              01 - Inteiros na CPU
+              02 - Representação de dados em RAM
             </div>
           </div>
         </a>
       
-      
-        
-        <a href="../03-arquitetura-x86/" class="md-footer__link md-footer__link--next" aria-label="Next: 03 - Arquitetura x86-64" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              03 - Arquitetura x86-64
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
       
     </nav>
   
