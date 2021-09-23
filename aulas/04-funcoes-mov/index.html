@@ -470,6 +470,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-arrays/" class="md-nav__link">
+        09 - Array em Assembly
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -660,26 +672,26 @@
 <h3 id="o-codigo">O código<a class="headerlink" href="#o-codigo" title="Permanent link">&para;</a></h3>
 <p>Vamos agora para o código. Nossa primeira estratégia é atribuir um nome para cada registrador. Os três registradores de argumentos já receberam os nomes <code>a</code>, <code>b</code> e <code>c</code>. Para deixar explícito o papel do <code>%rax</code> vamos nomeá-lo de <code>retval</code>.</p>
 <p>A primeira instrução <code>add %rsi, %rdi</code> realiza a adição dos dois registradores e armazena em <code>%rdi</code>. Logo, sua tradução direta seria:</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">+=</span> <span class="n">b</span><span class="p">;</span>
 </code></pre></div>
 <p>A instrução <code>lea (%rdi, %rdx, 2), %rax</code> é usada tanto para calcular endereços de memória quanto para aritmética simples. Vemos que é o segundo caso pois, no código seguinte, não acessamos a memória com o valor calculado. Logo, podemos traduzir este trecho como</p>
-<div class="highlight"><pre><span></span><code><span class="n">retval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">retval</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">c</span><span class="p">;</span>
 </code></pre></div>
 <p>Logo após temos o <code>ret</code>, que é traduzido como</p>
-<div class="highlight"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="n">retval</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">return</span> <span class="n">retval</span><span class="p">;</span>
 </code></pre></div>
 <p>Logo, nossa função é traduzida como</p>
-<div class="highlight"><pre><span></span><code><span class="kt">long</span><span class="w"> </span><span class="nf">misterio1</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">c</span><span class="p">){</span><span class="w"></span>
-<span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">retval</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">retval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="n">c</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">retval</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kt">long</span> <span class="nf">misterio1</span><span class="p">(</span><span class="kt">long</span> <span class="n">a</span><span class="p">,</span> <span class="kt">long</span> <span class="n">b</span><span class="p">,</span> <span class="kt">long</span> <span class="n">c</span><span class="p">){</span>
+    <span class="kt">long</span> <span class="n">retval</span><span class="p">;</span>
+    <span class="n">a</span> <span class="o">+=</span> <span class="n">b</span><span class="p">;</span>
+    <span class="n">retval</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">c</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">retval</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>Finalmente, podemos deixar nosso código legível e escrevê-lo como</p>
-<div class="highlight"><pre><span></span><code><span class="kt">long</span><span class="w"> </span><span class="nf">misterio1</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">c</span><span class="p">){</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="n">c</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kt">long</span> <span class="nf">misterio1</span><span class="p">(</span><span class="kt">long</span> <span class="n">a</span><span class="p">,</span> <span class="kt">long</span> <span class="n">b</span><span class="p">,</span> <span class="kt">long</span> <span class="n">c</span><span class="p">){</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">c</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>Você pode verificar o código original no arquivo <code>exemplo1.c</code>.</p>
 <hr />
