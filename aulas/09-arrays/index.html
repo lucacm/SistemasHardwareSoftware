@@ -543,7 +543,7 @@
 <li><code>%reg2</code> contém o índice do elemento a ser acessado</li>
 <li><code>S</code> contém o tamanho de cada elemento do vetor e pode ser <code>1, 2, 4</code> ou <code>8</code>.</li>
 </ul>
-<p>O acesso é feito ao endereço <code>D + %reg1 + S * %reg2</code>. Ou seja, primeiro computamos o endereço e depois acessamos a memória <em>no endereço computado</em>.</p>
+<p>O acesso é feito ao endereço <code>D + %reg1 + %reg2 * S</code>. Ou seja, primeiro computamos o endereço e depois acessamos a memória <em>no endereço computado</em>.</p>
 <div class="admonition question choice">
 <p class="admonition-title">Question</p>
 <p>Supondo que <code>%rsi=0x24, %rdi=0x8</code>, o valor final da expressão <code>(%rsi, %rdi, 4)</code> é</p>
