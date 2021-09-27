@@ -498,7 +498,7 @@
 <p>O valor apresentado na saída confere com o presente no código? Por que isto acontece?</p>
 <div class="admonition details">
 <p class="admonition-title">Resposta</p>
-<p>O valor -1 em complemento de 2 é representado como uma sequência de 1's. Ao ser atribuído em uma unsigned short, teremos dezesseis 1's, mas que serão interpretados como unsigned. Somando <span><span class="MathJax_Preview">1^0 + 1^1 + \dots + 1^{15} = 65535</span><script type="math/tex">1^0 + 1^1 + \dots + 1^{15} = 65535</script></span></p>
+<p>O valor -1 em complemento de 2 é representado como uma sequência de 1's. Ao ser atribuído em uma unsigned short, teremos dezesseis 1's, mas que serão interpretados como unsigned. Somando <span><span class="MathJax_Preview">2^0 + 2^1 + \dots + 2^{15} = 65535</span><script type="math/tex">2^0 + 2^1 + \dots + 2^{15} = 65535</script></span></p>
 </div>
 </div>
 <div class="admonition question short">
@@ -510,7 +510,7 @@
 <p>O que acontece quando tentamos armazenar um valor maior que o suportado pelo tipo de dados? Ex: atribuir 80000 para uma <strong>unsigned short</strong>.</p>
 </div>
 <h2 id="exercicio-2">Exercício 2<a class="headerlink" href="#exercicio-2" title="Permanent link">&para;</a></h2>
-<p>Neste exercício iremos fazer engenharia reversa de Assembly para C. Os códigos-fonte estão disponíveis no repositório,</p>
+<p>Neste exercício iremos fazer engenharia reversa de Assembly para C. Os códigos-fonte estão disponíveis no repositório, mas evite abri-los antes de ter feito pelo menos uma primeira versão da engenharia reversa.</p>
 <p>Compile o ex2.c mas sem abrir o código-fonte e responda:</p>
 <div class="admonition question short">
 <p class="admonition-title">Question</p>
@@ -521,7 +521,7 @@
 <p class="admonition-title">Question</p>
 <p>Com base nos registradores utilizados, escreva a assinatura da função <code>func1</code>.</p>
 </div>
-<div class="admonition question short">
+<div class="admonition question long">
 <p class="admonition-title">Question</p>
 <p>Em <code>movw   $0x0,(%rdi)</code>, qual a operação realizada e o que significa o trecho <code>(%rdi)</code>?</p>
 <div class="codehilite"><pre><span></span><code>!!! details &quot;Dica&quot; Para este e o próximo exercício, veja a seção **Acesso a elementos constantes** da aula **09 - Arrays**
@@ -530,7 +530,7 @@
 </div>
 <div class="admonition question short">
 <p class="admonition-title">Question</p>
-<p>Em <code>$0x14,0x4(%rdi)</code>, qual a operação realizada e o que significa o trecho <code>0x4(%rdi)</code>?</p>
+<p>Em <code>movw   $0x14,0x4(%rdi)</code>, qual a operação realizada e o que significa o trecho <code>0x4(%rdi)</code>?</p>
 </div>
 <div class="admonition question long">
 <p class="admonition-title">Question</p>
@@ -549,7 +549,7 @@
 <p class="admonition-title">Question</p>
 <p>Qual a operação realizada em <code>add    %edx,%edx</code> na função <code>func2</code>?</p>
 </div>
-<div class="admonition question short">
+<div class="admonition question long">
 <p class="admonition-title">Question</p>
 <p>Você conseguiria agregar as operações <code>lea    (%rax,%rax,4),%edx</code> e <code>add    %edx,%edx</code> em uma única operação aritmética mais simples?</p>
 <div class="codehilite"><pre><span></span><code>!!! details &quot;Reposta&quot; Suponto que em `%eax` temos a variável `i`, então estamos armazenando em `%edx` o equivalente a `i * 10`
