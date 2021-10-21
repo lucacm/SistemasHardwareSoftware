@@ -11,14 +11,14 @@
         <meta name="author" content="Igor Montagner, Maciel Calebe Vidal">
       
       
-        <link rel="canonical" href="https://insper.github.io/SistemasHardwareSoftware/aulas/11-malloc/">
+        <link rel="canonical" href="https://insper.github.io/SistemasHardwareSoftware/aulas/13-processos/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
     
     
       
-        <title>11 - Alocação Dinâmica de Memória - Sistemas Hardware-Software - 2021/2</title>
+        <title>13 - Processos - Sistemas Hardware-Software - 2021/2</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#11-alocacao-dinamica-de-memoria" class="md-skip">
+        <a href="#13-processos" class="md-skip">
           Skip to content
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              11 - Alocação Dinâmica de Memória
+              13 - Processos
             
           </span>
         </div>
@@ -382,65 +382,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          11 - Alocação Dinâmica de Memória
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../11-malloc/" class="md-nav__link">
         11 - Alocação Dinâmica de Memória
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#exercicios-basicos" class="md-nav__link">
-    Exercícios básicos
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ferramentas-de-verificacao-de-memoria" class="md-nav__link">
-    Ferramentas de verificação de memória
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#implementacoes-de-funcoes-entrega" class="md-nav__link">
-    Implementações de funções (Entrega)
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -460,11 +406,58 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../13-processos/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          13 - Processos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         13 - Processos
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-chamada-fork" class="md-nav__link">
+    A chamada fork
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#as-chamadas-waitwaitpid" class="md-nav__link">
+    As chamadas wait/waitpid
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -501,22 +494,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#exercicios-basicos" class="md-nav__link">
-    Exercícios básicos
+  <a href="#a-chamada-fork" class="md-nav__link">
+    A chamada fork
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#ferramentas-de-verificacao-de-memoria" class="md-nav__link">
-    Ferramentas de verificação de memória
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#implementacoes-de-funcoes-entrega" class="md-nav__link">
-    Implementações de funções (Entrega)
+  <a href="#as-chamadas-waitwaitpid" class="md-nav__link">
+    As chamadas wait/waitpid
   </a>
   
 </li>
@@ -533,146 +519,101 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/insper/sistemashardwaresoftware/edit/master/docs/aulas/11-malloc/index.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/insper/sistemashardwaresoftware/edit/master/docs/aulas/13-processos/index.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="11-alocacao-dinamica-de-memoria">11 - Alocação Dinâmica de Memória<a class="headerlink" href="#11-alocacao-dinamica-de-memoria" title="Permanent link">&para;</a></h1>
-<h2 id="exercicios-basicos">Exercícios básicos<a class="headerlink" href="#exercicios-basicos" title="Permanent link">&para;</a></h2>
+                <h1 id="13-processos">13 - Processos<a class="headerlink" href="#13-processos" title="Permanent link">&para;</a></h1>
+<h2 id="a-chamada-fork">A chamada <code>fork</code><a class="headerlink" href="#a-chamada-fork" title="Permanent link">&para;</a></h2>
+<p>A chamada <code>fork</code> cria um clone do processo atual e retorna duas vezes: uma vez no processo original (pai) e uma vez no processo novo (filho). Cada processo segue executando o programa linha a linha, porém cada um possui áreas de memória separadas. Ou seja, mudar uma variável no processo pai não muda seu valor no filho (e vice-versa). Todo processo é identificado por um número chamado de <code>pid</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>O <code>pid</code> é incrementado conforme novos processos vão sendo iniciados.</p>
+</div>
+<p>Considerando o código abaixo (arquivo <em>exemplo1-fork.c</em>), responda.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">pid_t</span> <span class="n">pai</span><span class="p">,</span> <span class="n">filho</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">variavel</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+<span class="n">filho</span> <span class="o">=</span> <span class="n">fork</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">filho</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// processo filho aqui</span>
+    <span class="n">pai</span> <span class="o">=</span> <span class="n">getppid</span><span class="p">();</span>
+    <span class="n">filho</span> <span class="o">=</span> <span class="n">getpid</span><span class="p">();</span>
+    <span class="n">variavel</span> <span class="o">*=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;eu sou o processo filho %d, meu pai é %d</span><span class="se">\n</span><span class="s">variavel %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span>
+        <span class="n">filho</span><span class="p">,</span> <span class="n">pai</span><span class="p">,</span> <span class="n">variavel</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// processo pai aqui!</span>
+    <span class="n">pai</span> <span class="o">=</span> <span class="n">getpid</span><span class="p">();</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;eu sou o processo pai %d, meu filho é %d</span><span class="se">\n</span><span class="s">variavel %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span>
+        <span class="n">pai</span><span class="p">,</span> <span class="n">filho</span><span class="p">,</span> <span class="n">variavel</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</code></pre></div>
+<div class="admonition question short">
+<p class="admonition-title">Question</p>
+<p>Responda sem rodar o programa. Qual seria o valor de <code>variavel</code> no print do pai? e do filho?</p>
+</div>
+<div class="admonition question short">
+<p class="admonition-title">Question</p>
+<p>Esse valor mudaria conforme o pai (ou o filho) executam primeiro?</p>
+</div>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p>Abra o arquivo <em>ex1.c</em> em um editor e compile-o usando as flags da disciplina (<code>-Og -Wall -std=c99</code>).</p>
-</div>
-<p><strong>Sem rodar o programa</strong>, responda as questões abaixo.</p>
-<div class="admonition question short">
-<p class="admonition-title">Question</p>
-<p>Analisando seu código-fonte, o que este programa faz?</p>
-</div>
-<div class="admonition question short">
-<p class="admonition-title">Question</p>
-<p>Na execução deste programa, o que acontece se <code>malloc</code> falhar?</p>
-</div>
-<div class="admonition question short">
-<p class="admonition-title">Question</p>
-<p>O seu programa libera toda memória que aloca? Se não, aponte onde ele deveria fazer isto.</p>
-<div class="admonition details">
-<p class="admonition-title">Details</p>
-<p>Cada valor retornado por <code>malloc</code> deve ser liberado usando a função <code>free</code>. No caso, vemos que <code>vetor</code> não foi liberada após seu uso.</p>
-</div>
+<p>Compile e execute o programa acima. As suas respostas estão corretas?</p>
 </div>
 <hr />
-<p>Agora execute o programa acima e responda as questões abaixo.</p>
-<div class="admonition question short">
-<p class="admonition-title">Question</p>
-<p>Ocorreu algum problema durante a execução?</p>
-<div class="admonition details">
-<p class="admonition-title">Details</p>
-<p>A resposta aqui é provavelmente não. Porém, isso não significa que o programa está correto, apenas que se ocorreu um erro ele não foi suficientemente grave para finalizar o programa.</p>
-</div>
-</div>
-<div class="admonition question short">
-<p class="admonition-title">Question</p>
-<p>O comportamento de seu programa muda conforme N muda? Começe com <code>N=10</code> e vá incrementando de um em um. Você consegue explicar por que? Discuta com seu grupo e valide sua resposta com o professor.</p>
-<div class="admonition details">
-<p class="admonition-title">Details</p>
-<p>Ao chegar em <code>N=14</code> seu programa deverá magicamente dar problemas e deve voltar a funcionar com <code>N=15</code>. Este é um dos grandes problemas de programas com erro de memória: seu comportamento é imprevisível.</p>
-</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Faça um programa que cria 8 processos filhos (numerados de 1 a 8) e faz cada um imprimir na tela seu seu identificador. O processo pai deve imprimir 0, enquanto o primeiro filho imprime 1, o segundo 2 e assim em diante. A saída de seu programa deverá seguir o modelo abaixo:</p>
+<div class="highlight"><pre><span></span><code>Eu sou o processo pai, pid=%d, meu id do programa é %d\n
+Eu sou um processo filho, pid=%d, ppied=%d, meu id do programa é %d\n
+</code></pre></div>
+<p>A primeira linha só deve ser mostrada uma vez pelo processo pai. Para verificar que seu programa funciona corretamente não se esqueça de contar quantos <code>printf</code> foram feitos. Se houver mais que 9 houve algum problema na sua solução.</p>
 </div>
 <div class="admonition question medium">
 <p class="admonition-title">Question</p>
-<p>Existem três problemas no código. O primeiro (<code>vetor</code> não é desalocado) já identificamos no exercíco anterior. Você consegue identificar os outros dois?</p>
-</div>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p>Corrija os erros apontados na questão anterior e salve o programa em um arquivo <em>ex1-certo.c</em>.</p>
-</div>
-<h2 id="ferramentas-de-verificacao-de-memoria">Ferramentas de verificação de memória<a class="headerlink" href="#ferramentas-de-verificacao-de-memoria" title="Permanent link">&para;</a></h2>
-<p>Para poder identificar mais facilmente problemas relativos a memória, iremos utilizar uma ferramenta chamada Valgrind.</p>
-<p>O Valgrind é um detector de má gestão de memória. Ele roda seu programa em cima de um ambiente modificado e aponta os seguintes erros:</p>
-<ol>
-<li>memória alocada e não liberada</li>
-<li>acessos (leituras e escritas) a posições de memória não alocada ou inválidas</li>
-</ol>
-<p>O valgrind  está disponível na maioria das distribuições Linux modernas</p>
-<div class="highlight"><pre><span></span><code>sudo apt install valgrind
+<p>O programa abaixo termina? Explique sua resposta.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">rodando</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kt">pid_t</span> <span class="n">filho</span><span class="p">;</span>
+
+<span class="n">filho</span> <span class="o">=</span> <span class="n">fork</span><span class="p">();</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">filho</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Acabei filho</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">rodando</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">rodando</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Esperando o filho acabar!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </code></pre></div>
-<p>Para que os problemas encontrados pelo Valgrind sejam mais facilmente identificados, iremos passar a compilar utilizando a flag <code>-g</code>.</p>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p>Compile os programas <code>ex1</code> e <code>ex1-certo</code> criados na parte anterior incluindo também a flag <code>-g</code>.</p>
 </div>
+<div class="admonition progress">
+<p class="admonition-title">Progress</p>
+<p>Próxima seção</p>
+</div>
+<h2 id="as-chamadas-waitwaitpid">As chamadas <code>wait/waitpid</code><a class="headerlink" href="#as-chamadas-waitwaitpid" title="Permanent link">&para;</a></h2>
+<p>Um processo pode esperar seus filhos acabarem usando uma das chamadas <code>wait</code> ou <code>waitpid</code>. Esta chamada retorna um código numérico que representa a saída do programa (o que foi retornado pelo <code>main</code>) e um conjunto de flags que indica se houve término anormal. O código <strong>errado</strong> do último exercício tentava simular estas chamadas usando uma variável <code>rodando</code> e checando seu valor. A maneira correta de esperar um processo filho terminar é usando <code>wait</code> ou <code>waitpid</code>.</p>
 <div class="admonition question medium">
 <p class="admonition-title">Question</p>
-<p>Rode o Valgrind com <code>valgrind --leak-check=yes ./ex1</code>. Quantos erros foram encontrados? Quais são seus tipos (escrita ou leitura de dados)? O que eles significam?</p>
-</div>
-<hr />
-<p>O primeiro erro encontrado é</p>
-<div class="highlight"><pre><span></span><code>==1899== Invalid write of size 4
-==1899==    at 0x1086C7: main (ex1.c:11)
-==1899==  Address 0x522f078 is 0 bytes after a block of size 56 alloc&#39;d
-==1899==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1899==    by 0x1086B9: main (ex1.c:7)
-</code></pre></div>
-<div class="admonition question short">
-<p class="admonition-title">Question</p>
-<p>Em qual linha o erro ocorre? O que a mensagem acima significa?</p>
-<div class="admonition details">
-<p class="admonition-title">Details</p>
-<p>O erro ocorre na linha 11, ao escrever em vetor[i] quando <code>i == N</code></p>
-</div>
-</div>
-<hr />
-<p>O segundo erro é</p>
-<div class="highlight"><pre><span></span><code>==1899== Invalid read of size 4
-==1899==    at 0x1086DD: main (ex1.c:15)
-==1899==  Address 0x522f078 is 0 bytes after a block of size 56 alloc&#39;d
-==1899==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1899==    by 0x1086B9: main (ex1.c:7)
-</code></pre></div>
-<div class="admonition question short">
-<p class="admonition-title">Question</p>
-<p>Em qual linha o erro ocorre? O que a mensagem acima significa?</p>
-<div class="admonition details">
-<p class="admonition-title">Details</p>
-<p>O erro ocorre na linha 15, ao ler vetor[i] quando <code>i == N</code>.</p>
-</div>
-</div>
-<hr />
-<p>A seção <em>HEAP SUMMARY</em> faz um resumo dos dados alocados/desalocados no seu programa. A saída abaixo foi obtida ao rodar o valgrind para o exercício 1 original:</p>
-<div class="highlight"><pre><span></span><code>==2179== HEAP SUMMARY:
-==2179==     in use at exit: 56 bytes in 1 blocks
-==2179==   total heap usage: 2 allocs, 1 frees, 1,080 bytes allocated
-==2179==
-==2179== 56 bytes in 1 blocks are definitely lost in loss record 1 of 1
-==2179==    at 0x4C31B0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2179==    by 0x1086B9: main (ex1.c:7)
-</code></pre></div>
-<div class="admonition question short">
-<p class="admonition-title">Question</p>
-<p>Ela mostra algum problema? Se sim, qual linha de código é apontada? Qual é o problema diagnosticado por este aviso?</p>
-<div class="admonition details">
-<p class="admonition-title">Details</p>
-<p>Ela indica que houveram 2 <code>mallocs' e somente 1</code>free<code>. Ou seja, alguma alocação de memória deixou de liberar dados. Abaixo, são indicadas em quais linhas os</code>malloc<code>sem</code>free<code>ocorreram (linha 7 na função</code>main`)</p>
-</div>
+<p>Pesquise como usar <code>wait</code> no manual. Escreva abaixo a assinatura da função. Qual é o valor retornado? O que é retornado na varíavel passada como ponteiro?</p>
 </div>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p>Verifique que seu programa corrigido <em>ex1-certo.c</em> roda sem erros no valgrind. Se não, corrija os problema e rode novamente até que rode sem erros.</p>
+<p>Modifique o programa <code>exemplo2-errado.c</code> para usar <code>wait</code> para esperar o processo filho terminar. Após o filho terminar o pai deve mostrar uma mensagem na tela indicando este fato. Salve este arquivo como <code>exemplo2-certo.c</code></p>
 </div>
-<h2 id="implementacoes-de-funcoes-entrega">Implementações de funções (<strong>Entrega</strong>)<a class="headerlink" href="#implementacoes-de-funcoes-entrega" title="Permanent link">&para;</a></h2>
-<p>Os exercícios abaixo estão disponíveis no repositório de entregas (pasta <code>07-malloc</code>).</p>
+<div class="admonition question short">
+<p class="admonition-title">Question</p>
+<p>É possível obter o valor retornado pelo <code>main</code> de um processo usando <code>wait</code>. Pesquise no manual como fazê-lo.</p>
+<p><strong>Dica</strong>: procure por <em>exit status</em>.</p>
+</div>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p>Abra o arquivo <em>copia_string.c</em> e implemente a função <em>mystrcpy</em>. Esta função recebe uma string, e devolve uma cópia da string original, alocando apenas o espaço realmente necessário.</p>
-</div>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p>Abra o arquivo <em>concatena_string.c</em> e implemente a função <em>mystrcat</em>. Esta função recebe duas string, e devolve uma terceira que é a concatenação das duas primeiras, alocando apenas o espaço realmente necessário.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Não se esqueça de checar se sua implementação tem erros usando o valgrind.</p>
+<p>Modifique o <code>exemplo2-certo.c</code> para que o filho retorne <code>2</code> e modifique o pai para que ele obtenha esta informação a partir dos valores retornados pelo <code>wait</code>. Você precisará ler o manual de <code>wait</code> para fazer este exercício.</p>
 </div>
                 
               
@@ -693,7 +634,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../10-revisao/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 10 - Revisão" rel="prev">
+        <a href="../12-tipos-de-dados/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 12 - Tipos abstratos de dados" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -702,26 +643,11 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              10 - Revisão
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../12-tipos-de-dados/" class="md-footer__link md-footer__link--next" aria-label="Next: 12 - Tipos abstratos de dados" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
               12 - Tipos abstratos de dados
             </div>
           </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
         </a>
+      
       
     </nav>
   
