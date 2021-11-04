@@ -8,8 +8,9 @@ int main() {
 
     filho = fork();
     if (filho == 0) {
-        int i = 1/0;
-        printf("Divisão por zero!\n");
+        printf("PID do filho: %d\n", getpid());
+        while (1);
+        
     } else {
         pid_t pid_terminou;
         int ws;
@@ -17,11 +18,8 @@ int main() {
         pid_terminou = wait(&ws);
 
         printf("O meu filho de PID %d terminou!\n", pid_terminou);
-        
         printf("Algumas infos sobre a finalização do processo filho:\n");
-
         printf("EXIT %d\nSGINALED %d\nSIGTERM %d\n", WIFEXITED(ws), WIFSIGNALED(ws), WTERMSIG(ws));
-
         printf("Sinal recebido pelo filho: %s\n", strsignal(WTERMSIG(ws)));
     }
 
