@@ -9,7 +9,13 @@ void sig_handler(int num) {
     contador++;
     printf("Chamou Ctrl+C\n");
     if (contador == 3) {
-        exit(0);
+        struct sigaction s;
+
+        s.sa_handler = SIG_DFL;
+        s.sa_flags = 0;
+        sigemptyset(&s.sa_mask);
+    
+        sigaction(SIGINT, &s, NULL);
     }
 }
 
